@@ -1,0 +1,32 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <sys/stat.h> 
+
+int main() {
+  //deklaracja zmiennych
+  char current_dir[1024];
+  char subdir_name[100];
+
+  // Pobranie sciezki do biezacego katalogu
+  if (getcwd(current_dir, sizeof(current_dir)) == NULL) {
+    perror("Blad pobrania sciezki do biezacego katalogu");
+    return 1;
+  }
+
+  printf("Sciezka do biezacego katalogu: %s\n", current_dir);
+
+  // Wczytanie nazwy podkatalogu
+  printf("Podaj nazwę podkatalogu: ");
+  scanf("%s", subdir_name);
+
+  // Tworzenie podkatalogu
+  if (mkdir(subdir_name, 0777) == -1) { // 0777 - pelne uprawnienia
+    perror("Blad tworzenia podkatalogu");
+    return 1;
+  }
+
+  printf("Podkatalog '%s' zostal utworzony w biezacym katalogu.\n", subdir_name);
+
+  return 0;
+}

@@ -1,0 +1,27 @@
+#include <stdio.h>
+
+int main() {
+	//deklaracja zmiennych
+	char napis1[100], napis2[100];
+	char *ptr1, *ptr2;
+
+	// Wczytywanie tekstu do zmiennej napis1
+	printf("Wpisz tekst: ");
+	scanf("%s", napis1);
+
+	// Kopiowanie napis1 do napis2 po pojedynczych znakach
+	ptr1 = napis1;
+	ptr2 = napis2;
+	while (*ptr1 != '\0') {
+		*ptr2 = *ptr1;
+		ptr1++;
+		ptr2++;
+	}
+	*ptr2 = '\0'; // Dodanie znaku null na koniec kopii napisu
+
+	// Wypisanie obu tekstów
+	printf("Napis1: %s\n", napis1);
+	printf("Napis2: %s\n", napis2);
+
+	return 0;
+}

@@ -1,0 +1,68 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+  // Funkcja swapu elementow
+  void swap(int* arr, int i, int j)
+  {
+    int temp = arr[i];
+    arr[i] = arr[j];
+    arr[j] = temp;
+  }
+
+  //Funkcja sortowania
+  void selectionSort(int arr[], int n) {
+  int i, j, min;
+  for (i = 0; i < n - 1; i++) {
+    min = i;
+    for (j = i + 1; j < n; j++) {
+      if (arr[min] > arr[j]) {
+        min = j;
+      }
+     }
+    swap(arr, min, i);
+    }
+  }
+  // Funkcja wypisania tablicy
+  void printtab(int tab[], int n) {
+    for (int i = 0; i < n; i++) {
+        printf(" %d ", tab[i]);
+        if ((i + 1) % 10 == 0) {
+            printf("\n");
+        }
+    }
+    printf("\n");
+  }
+  // Funnkcja wypelniena tablicy losowymi elementami
+  void wyptab(int arr[], int N, int a, int b) {
+    for (int i = 0; i < N; i++) {
+        arr[i] = rand()%(b-a+1)+a;
+    }
+  }
+
+  int main()
+  {
+    //deklaracja zmiennych
+    int arr[1000];
+    int n, a, b;
+    int N = sizeof(arr) / sizeof(arr[0]);
+    //wprowadzenie wartosci zmiennych
+    printf("Wpisz rozmiar tablicy: ");
+    scanf("%d", &N);
+
+    printf("wpisz przedzial [a, b]: ");
+    scanf("%d %d", &a, &b);
+
+    srand(time(0));//genetator losowych liczb
+
+    //wywolanie funkcji
+    wyptab(arr, N, a, b);
+    //wypisanie poczatkowej tabeli
+    printf("Nieposortowana tablica: \n");
+    printtab(arr, N);
+    //wywolanie sortowania
+    selectionSort(arr, N);
+    //wypisanie posortowanej tabeli
+    printf("Posortowana tablica: \n");
+    printtab(arr, N);
+    return 0;
+  }

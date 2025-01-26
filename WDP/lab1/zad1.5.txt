@@ -1,0 +1,35 @@
+#include <stdio.h>
+//Funkcja sprawdzenia lustranosci liczby
+
+int lustrzane(int *n) {
+    int poczatkowaLiczba = *n;
+    int odwroconaLiczba = 0;
+    int tempLiczba = *n; // Tworzenie czasowej zmiennej zeby nie zmieniac wartosci poczatkowej
+
+    while (tempLiczba > 0) {
+        int pozostale = tempLiczba % 10;
+        odwroconaLiczba = odwroconaLiczba * 10 + pozostale;
+        tempLiczba = tempLiczba / 10;
+    }
+
+    return (poczatkowaLiczba == odwroconaLiczba) ? 1 : 0;
+}
+
+int main() {
+  //tworzenie zmiennych
+    int N, W;
+    int *pN, *pW;
+
+    pN = &N;
+    pW = &W;
+//Wprowadzenie wartosci
+    printf("Wpisz liczbe (max 4 cyfry): ");
+    scanf("%d", &N);
+//wywolanie funkcji
+    *pW = lustrzane(pN);
+//Wypisanie wyniku
+    printf("Wpisana liczba: %d\n", N);
+    printf("Wartosc W wynosi: %d\n", W);
+
+    return 0;
+}

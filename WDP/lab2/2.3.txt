@@ -1,0 +1,29 @@
+#include <stdio.h>
+
+int main() {
+	//deklaracja zmiennych
+	char str[100];
+	char *ptr;
+
+	//wpisanie napisu
+	printf("Wpisz napis: ");
+	scanf("%s", str);
+
+	ptr = str;
+
+	// liczymy dlugosc napisu
+	while (*ptr) {
+		ptr++;
+	}
+	ptr--; // przesuwamy sie na ostatni znak
+
+	//wypisanie napisu
+	printf("Odwrocony napis: ");
+	while (ptr >= str) {
+		printf("%c", *ptr);
+		ptr--;
+	}
+	printf("\n");
+
+	return 0;
+}

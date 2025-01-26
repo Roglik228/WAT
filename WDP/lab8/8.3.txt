@@ -1,0 +1,111 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+// Funkcja do wyswietlania liczb po 10 w wierszu
+void displayNumbers(int *numbers, int count) {
+    for (int i = 0; i < count; i++) {
+        printf("%5d", numbers[i]);
+        if ((i + 1) % 10 == 0) {
+            printf("\n");
+        }
+    }
+    if (count % 10 != 0) {
+        printf("\n");
+    }
+}
+
+// Funkcja do sortowania liczb
+void sortNumbers(int *numbers, int count) {
+    for (int i = 0; i < count - 1; i++) {
+        for (int j = 0; j < count - i - 1; j++) {
+            if (numbers[j] > numbers[j + 1]) {
+                int temp = numbers[j];
+                numbers[j] = numbers[j + 1];
+                numbers[j + 1] = temp;
+            }
+        }
+    }
+}
+
+int main() {
+    //deeklaracja zmiennych
+    char inputFile1[256], inputFile2[256], outputFile[256];
+    printf("Podaj nazwe pierwszego pliku wejsciowego: ");
+    scanf("%s", inputFile1);
+    printf("Podaj nazwe drugiego pliku wejsciowego: ");
+    scanf("%s", inputFile2);
+    printf("Podaj nazwe pliku wyjsciowego: ");
+    scanf("%s", outputFile);
+
+    FILE *inFile1 = fopen(inputFile1, "r");
+    FILE *inFile2 = fopen(inputFile2, "r");
+    if (inFile1 == NULL || inFile2 == NULL) {
+        perror("Nie mozna otworzyc jednego z plikow wejsciowych");
+        return 1;
+    }
+
+    int numbers1[1000], numbers2[1000];
+    int count1 = 0, count2 = 0;
+    // Wczytywanie liczb z pierwszego pliku
+    while (fscanf(inFile1, "%d", &numbers1[count1]) != EOF) {
+        count1++;
+    }
+    fclose(inFile1);
+    // Wczytywanie liczb z drugiego pliku
+    while (fscanf(inFile2, "%d", &numbers2[count2]) != EOF) {
+        count2++;
+    }
+    fclose(inFile2);
+    // Wypisanie liczb
+    printf("Liczby z pliku %s:\n", inputFile1);
+    displayNumbers(numbers1, count1);
+
+    printf("Liczby z pliku %s:\n", inputFile2);
+    displayNumbers(numbers2, count2);
+    // Sortowanie liczb
+    int mergedNumbers[2000];
+    int i = 0, j = 0, k = 0;
+
+    while (i < count1 && j < count2) {
+        if (numbers1[i] < numbers2[j]) {
+            mergedNumbers[k++] = numbers1[i++];
+        } else {
+            mergedNumbers[k++] = numbers2[j++];
+        }
+    }
+
+    while (i < count1) {
+        mergedNumbers[k++] = numbers1[i++];
+    }
+
+    while (j < count2) {
+        mergedNumbers[k++] = numbers2[j++];
+    }
+
+    printf("Polaczone liczby przed sortowaniem:\n");
+    displayNumbers(mergedNumbers, k);
+
+    sortNumbers(mergedNumbers, k);
+
+    printf("Polaczone i posortowane liczby:\n");
+    displayNumbers(mergedNumbers, k);
+
+    FILE *outFile = fopen(outputFile, "w");
+    if (outFile == NULL) {
+        perror("Nie mozna otworzyc pliku wyjściowego");
+        return 1;
+    }
+
+    for (int i = 0; i < k; i++) {
+        fprintf(outFile, "%5d", mergedNumbers[i]);
+        if ((i + 1) % 10 == 0) {
+            fprintf(outFile, "\n");
+        }
+    }
+    if (k % 10 != 0) {
+        fprintf(outFile, "\n");
+    }
+    fclose(outFile);
+
+    return 0;
+}

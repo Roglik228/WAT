@@ -1,0 +1,104 @@
+#include <stdio.h>
+#include <stdlib.h>
+//deklaracja Struktury Node
+typedef struct Node {
+    int data;
+    struct Node* next;
+} Node;
+
+Node* head = NULL;
+//funkcja dodania elementu
+void dodajel(int data) {
+    Node* new_node = (Node*)malloc(sizeof(Node));
+    new_node->data = data;
+    new_node->next = head;
+    head = new_node;
+}
+//funkcja usuwania elementu
+void usunel(int data) {
+    Node *current = head;
+    Node *previous = NULL;
+
+    while (current != NULL) {
+        if (current->data == data) {
+            if (previous != NULL) {
+                previous->next = current->next;
+            } else {
+                head = current->next;
+            }
+            free(current);
+            return;
+        }
+        previous = current;
+        current = current->next;
+    }
+    printf("Taki element nie istnieje.\n");
+}
+//funkcja znajdowania elementu
+Node* znajdzel(int data) {
+    Node* current = head;
+
+    while (current != NULL) {
+        if (current->data == data) {
+            return current;
+        }
+        current = current->next;
+    }
+    return NULL;
+}
+//funkcja wypisania listy elementow
+void listael() {
+    Node* current = head;
+
+    printf("List of elements:\n");
+    while (current != NULL) {
+        printf("Data: %d, Address of next element: %p\n", current->data, (void*)current->next);
+        current = current->next;
+    }
+}
+
+int main() {
+    //deklaracja zmiennych
+    int choice, data;
+
+    //menu wyboru
+
+    do {
+        printf("\n1.Dodaj element \n2. Usun element\n3. Znajdz element\n4. Lista elementow\n5. Wyjscie\n");
+        printf("Wpisz swoj wybor(numer): ");
+        scanf("%d", &choice);
+
+        switch (choice) {
+            case 1:
+                printf("Wpisz liczbe do dodania: ");
+                scanf("%d", &data);
+                dodajel(data);
+                break;
+            case 2:
+                printf("Wpisze liczbe do usuniecia: ");
+                scanf("%d", &data);
+                usunel(data);
+                break;
+            case 3:
+                printf("Wpisz liczbe do znajdowania: ");
+                scanf("%d", &data);
+                Node* found_element = znajdzel(data);
+                if (found_element != NULL) {
+                    printf("Element z liczba %d znajduje sie pod adresem: %p\n", data, (void*)found_element);
+                } else {
+                    printf("Brak elementu z liczba %d \n", data);
+                }
+                break;
+            case 4:
+                listael();
+                break;
+            case 5:
+                printf("Wyjscie z programu\n");
+                break;
+            default:
+                printf("Nie ma takiego wariantu,sprobuj jeszcze raz\n");
+        }
+    } while (choice != 5);
+
+    return 0;
+}

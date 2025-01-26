@@ -1,0 +1,50 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+
+#define RECORD_SIZE 10 // Rozmiar rekordu
+#define RECORDS_PER_LINE 10 // Ilosc rekordow w wierszu
+//deklaracja rekordu
+typedef struct {
+  int data;
+  char character;
+} Record;
+
+int main() {
+  //deklaracja zmiennych
+  char filename[100];
+  int n, i;
+  //wpisanie wartosci
+  printf("Podaj nazwe pliku binarnego: ");
+  scanf("%s", filename);
+
+  printf("Podaj ilosc rekordow: ");
+  scanf("%d", &n);
+
+  FILE *fp = fopen(filename, "wb");
+  if (fp == NULL) {
+    printf("Blad otwarcia pliku.\n");
+    return 1;
+  }
+
+  srand(time(NULL)); // Inicjalizacja generatora liczb losowych
+
+  printf("Wygenerowane rekordy:\n");
+  for (i = 0; i < n; i++) {
+    Record record;
+    record.data = rand() % 100; // Losowe dane int
+    record.character = 'A' + rand() % 26; // Losowa litera
+
+    fwrite(&record, sizeof(Record), 1, fp); // Zapis rekordu do pliku
+    printf("%d %c ", record.data, record.character);
+
+    if ((i + 1) % RECORDS_PER_LINE == 0) {
+      printf("\n");
+    }
+  }
+
+  fclose(fp);
+  printf("\nRekordy zapisano do pliku %s.\n", filename);
+
+  return 0;
+}

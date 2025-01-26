@@ -1,0 +1,53 @@
+#include <stdio.h>
+//Obliczenie T3
+void policz(int T1[3], int T2[2], int T3[3][2]) {
+    for (int i = 0; i < 3; i++) {
+        for (int j = 0; j < 2; j++) {
+            T3[i][j] = T1[i] * T2[j];
+        }
+    }
+}
+//Wyświetlenie tablic T1 T2
+void wystab(int T[], int rozmiar, const char* nazwa) {
+    printf("%s:\n", nazwa);
+    for (int i = 0; i < rozmiar; i++) {
+        printf("%5d\n", T[i]);
+    }
+    printf("\n");
+}
+//Wyświetlenie tablicy T3
+void wystab2(int T[][2], int wierszy, int kolumne, const char* nazwa) {
+    printf("%s:\n", nazwa);
+    for (int i = 0; i < wierszy; i++) {
+        for (int j = 0; j < kolumne; j++) {
+            printf("%5d", T[i][j]);
+        }
+        printf("\n");
+    }
+    printf("\n");
+}
+
+int main() {
+    //tworzenie zmiennych
+    int T1[3], T2[2], T3[3][2];
+
+    //wpisywanie wartości
+    printf("Wpisz elementy do T1 (3 elementy): ");
+    for (int i = 0; i < 3; i++) {
+        scanf("%d", &T1[i]);
+    }
+
+    printf("Wpisz elementy do T2 (2 elementy): ");
+    for (int i = 0; i < 2; i++) {
+        scanf("%d", &T2[i]);
+    }
+
+    //wywołanie funkcji 
+    policz(T1, T2, T3);
+    //wypisanie wynikow
+    wystab(T1, 3, "T1");
+    wystab(T2, 2, "T2");
+    wystab2(T3, 3, 2, "T1 x T2 (T3)");
+
+    return 0;
+}

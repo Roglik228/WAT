@@ -1,0 +1,50 @@
+#include <stdio.h>
+
+int main() {
+   //tworzenie zmiennych, oraz zmiennych wskaznikowych
+  int *pa,a,*pb,b;
+  float *pc,c,*pd,d;
+  long int *pe,e,*pf,f;
+  double *pg,g,*ph,h;
+  char *pi,i,*pj,j;
+  //przypisanie wartosci poprzez zmienna
+  printf("Podaj liczby int\n");
+  scanf("%i%i",&a,&b);
+  printf("Podaj liczby float\n");
+  scanf("%f%f",&c,&d);
+  printf("Podaj liczby long int\n");
+  scanf("%ld%ld",&e,&f);
+  printf("Podaj liczby double\n");
+  scanf("%lf%lf",&g,&h);
+  printf("Podaj litery do char\n");
+  scanf("%c%c",&i,&j);
+   //przypisanie zmiennych wskaznikowych
+  pa= &a;
+  pb= &b;
+  pc= &c;
+  pd= &d;
+  pe= &e;
+  pf= &f;
+  pg= &g;
+  ph= &h;
+  pi= &i;
+  pj= &j;
+  //przypisanie wartosci poprzez zmienne wskaznikowe
+  *pa=1;
+  *pb=2;
+  *pc=3;
+  *pd=4;
+  *pe=5;
+  *pf=6;
+  *pg=7;
+  *ph=8;
+  *pi='a';
+  *pj='b';
+  //wyswietlenie wartosci zmiennych
+  printf("\nWypisannie zmienionych danych przez zmienne wskaznikowe \n");
+  printf("Typ danych: int; Wartosc: %i i %i; Adres: %p i %p\n", a,b,pa,pb);
+  printf("Typ danych: dloat; Wartosc: %f i %f; Adres: %p i %p\n", c,d,pc,pd);
+  printf("Typ danych: long int; Wartosc: %ld i %ld; Adres: %p i %p\n", e,f,pe,pf);
+  printf("Typ danych: double; Wartosc: %lf i %lf; Adres: %p i %p\n", g,h,pg,ph);
+  printf("Typ danych: chat; Wartosc: %c i %c; Adres: %p i %p\n", i,j,pi,pj);
+}

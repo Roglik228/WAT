@@ -1,0 +1,37 @@
+#include <stdio.h>
+
+// Funkcja do obliczania NWD i NWW
+void nwd_nww(int a, int b, int *c, int *d) {
+    int temp_a = a;
+    int temp_b = b;
+
+    // Obliczanie NWD algorytmem Euklidesa
+    while (temp_b != 0) {
+        int temp = temp_b;
+        temp_b = temp_a % temp_b;
+        temp_a = temp;
+    }
+
+    // Przypisanie NWD do c
+    *c = temp_a;
+
+    // Obliczanie NWW za pomocą NWD
+    *d = (a * b) / *c;
+}
+
+int main() {
+    int a, b, c, d;
+
+    // Wprowadzenie liczb od użytkownika
+    printf("Podaj liczby a i b: ");
+    scanf("%d %d", &a, &b);
+
+    // Wywołanie funkcji nwd_nww
+    nwd_nww(a, b, &c, &d);
+
+    // Wyświetlenie wyników
+    printf("NWD liczb a=%d, b=%d: %d\n", a, b, c);
+    printf("NWW liczb a=%d, b=%d: %d\n", a, b, d);
+
+    return 0;
+}

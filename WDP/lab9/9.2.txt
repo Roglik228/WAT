@@ -1,0 +1,94 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+#define RECORD_SIZE 10 // Rozmiar rekordu
+#define RECORDS_PER_LINE 10 // Ilosc rekordow w wierszu
+
+// Deklaracja rekordu
+typedef struct {
+  int data;
+  char character;
+} Record;
+
+// Funkcja porownywania rekordow do sortowania
+int compareRecords(const void *a, const void *b) {
+  Record *recordA = (Record *)a;
+  Record *recordB = (Record *)b;
+  return recordA->data - recordB->data;
+}
+
+int main() {
+  //deklaracja zmiennych
+  char filenameIn[100], filenameOut[100];
+  int n, i;
+
+  // Wczytanie nazw plikow
+  printf("Podaj nazwe pliku wejsciowego (*.dat): ");
+  scanf("%s", filenameIn);
+
+  printf("Podaj nazwę pliku wyjsciowego (*.dat): ");
+  scanf("%s", filenameOut);
+
+  // Otwarcie pliku wejsciowego
+  FILE *fpIn = fopen(filenameIn, "rb");
+  if (fpIn == NULL) {
+    printf("Blad otwarcia pliku wejsciowego.\n");
+    return 1;
+  }
+
+  // Okreslenie liczby rekordow
+  fseek(fpIn, 0, SEEK_END);
+  n = ftell(fpIn) / sizeof(Record);
+  rewind(fpIn);
+
+  // Alokacja pamieci dla tablicy rekordow
+  Record *records = (Record *)malloc(n * sizeof(Record));
+  if (records == NULL) {
+    printf("Blad alokacji pamieci.\n");
+    fclose(fpIn);
+    return 1;
+  }
+
+  // Wczytanie rekordow z pliku wejsciowego
+  printf("\nDane z pliku wejsciowego:\n");
+  for (i = 0; i < n; i++) {
+    fread(&records[i], sizeof(Record), 1, fpIn);
+    printf("%d %c ", records[i].data, records[i].character);
+    if ((i + 1) % RECORDS_PER_LINE == 0) {
+      printf("\n");
+    }
+  }
+
+  // Zamknięcie pliku wejściowego
+  fclose(fpIn);
+
+  // Sortowanie rekordow
+  qsort(records, n, sizeof(Record), compareRecords);
+
+  // Otwarcie pliku wyjsciowego
+  FILE *fpOut = fopen(filenameOut, "wb");
+  if (fpOut == NULL) {
+    printf("Błąd otwarcia pliku wyjściowego.\n");
+    free(records);
+    return 1;
+  }
+
+  // Zapisanie posortowanych rekordow do pliku wyjsciowego
+  printf("\nDane z pliku wyjściowego:\n");
+  for (i = 0; i < n; i++) {
+    fwrite(&records[i], sizeof(Record), 1, fpOut);
+    printf("%d %c ", records[i].data, records[i].character);
+    if ((i + 1) % RECORDS_PER_LINE == 0) {
+      printf("\n");
+    }
+  }
+
+  // Zamkniecie plikow
+  fclose(fpOut);
+  free(records);
+
+  printf("\nRekordy zapisano do pliku %s.\n", filenameOut);
+
+  return 0;
+}

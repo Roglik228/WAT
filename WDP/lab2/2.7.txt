@@ -1,0 +1,33 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+//funkcja zwiekszania 
+void zwieksz(char *a) {
+    int i = 0;
+    while (a[i] != '\0') {
+        if (a[i] >= 'a' && a[i] <= 'z') {
+            a[i] = a[i] - 'a' + 'A';
+        }
+        i++;
+    }
+}
+
+int main() {
+    //deklaracja zmiennych
+    char input_text[100];
+
+    //wczytanie tekstu
+
+    printf("Wpisz fraze: ");
+    fgets(input_text, sizeof(input_text), stdin);
+    input_text[strcspn(input_text, "\n")] = '\0';
+    //wywolanie funkcji
+
+    zwieksz(input_text);
+
+    //wypisanie tekstu
+
+    printf("\nZamienione na duze litery: %s\n", input_text);
+
+    return 0;
+}
