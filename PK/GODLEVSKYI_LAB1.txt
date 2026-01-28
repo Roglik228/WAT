@@ -1,0 +1,80 @@
+# Andrii Godlevskyi WCY23KY1S1
+ 
+from random import randint
+from sage.all import *
+ 
+# Definicja dlugosci klucza b w bitach
+b = 128
+ 
+print("Protokol Diffiego–Hellmana dla 3 uczestnikow")
+print("Wartosc b =", b)
+ 
+def generuj_parametry(b):
+    #Generuje parametry dziedziny dla protokolu Diffiego–Hellmana.
+    while True:
+        # Losujemy kandydat na n o dlugosci (b-1) bitow
+        n_candidate = randint(2**(b-2), 2**(b-1) - 1)
+        n = next_prime(n_candidate)
+        p = 2 * n + 1
+        if p.nbits() == b and is_prime(p):
+            break
+    F = GF(p)
+    # Wybieramy generator g podgrupy rzedu n
+    while True:
+        h = F.random_element()
+        if h == 0:
+            continue
+        g = h^2  # Element g nalezy do podgrupy kwadratow (rzad n)
+        if g != 1 and g.multiplicative_order() == n:
+            break
+    return p, n, g
+ 
+def diffie_hellman_trzech(b):
+    print("\nGeneracja parametrow")
+    p, n, g = generuj_parametry(b)
+    print("p =", p)
+    print("n =", n)
+    print("g =", g)
+    # Generacja kluczy uczestnikow
+    
+    # Uczestnik A:
+    a = randint(2, n - 1)
+    A_val = power_mod(g, a, p)
+    print("\nUczestnik A:")
+    print("Klucz prywatny =", a)
+    print("Klucz publiczny =", A_val)
+    # Uczestnik B:
+    b = randint(2, n - 1)
+    B_val = power_mod(g, b, p)
+    print("\nUczestnik B:")
+    print("Klucz prywatny =", b)
+    print("Klucz publiczny =", B_val)
+    # Uczestnik C:
+    c = randint(2, n - 1)
+    C_val = power_mod(g, c, p)
+    print("\nUczestnik C:")
+    print("Klucz prywatny =", c)
+    print("Klucz publiczny =", C_val)
+    # Runda 2 
+    X = power_mod(C_val, a, p)       # A oblicza X = (C_val)^a = g^(a*c)
+    Y = power_mod(A_val, b, p)       # B oblicza Y = (A_val)^b = g^(a*b)
+    Z = power_mod(B_val, c, p)       # C oblicza Z = (B_val)^c = g^(b*c)
+    print("\nWymiana posrednich wartosci:")
+    print("A wysyla X =", X, "do B")
+    print("B wysyla Y =", Y, "do C")
+    print("C wysyla Z =", Z, "do A")
+    # Runda 3
+    K_A = power_mod(Z, a, p)         # A: (g^(b*c))^a = g^(a*b*c)
+    K_B = power_mod(X, b, p)         # B: (g^(a*c))^b = g^(a*b*c)
+    K_C = power_mod(Y, c, p)         # C: (g^(a*b))^c = g^(a*b*c)
+    print("\nObliczanie wspolnego klucza:")
+    print("Wspolny klucz obliczony przez A:", K_A)
+    print("Wspolny klucz obliczony przez B:", K_B)
+    print("Wspolny klucz obliczony przez C:", K_C)
+    if K_A == K_B == K_C:
+        print("Protokol zakonczony sukcesem – klucze sie zgadzaja")
+    else:
+        print("Blad w protokole – klucze sie nie zgadzaja")
+    return K_A
+
+shared_key = diffie_hellman_trzech(b)

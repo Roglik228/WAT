@@ -1,0 +1,69 @@
+import hashlib
+import random
+
+# Funkcja jednokierunkowa
+def one_way_function(input_value):
+    h = hashlib.sha3_512()
+    h.update(str(input_value).encode())
+    return h.hexdigest()
+
+# Generowanie lancucha wartosci dla uzytkownika
+def generate_chain(x0, k):
+    chain = [x0]
+    for _ in range(k):
+        chain.append(one_way_function(chain[-1]))
+    return chain
+
+# Symulacja protokolu Lamporta
+def lamport_multiuser_simulation(n, k, l):
+    # Inicjalne tajne wartosci x0_i dla kazdego uzytkownika
+    secrets = [f"tajna_wartosc_{i+1}" for i in range(n)]
+    # Generujemy lancuchy i indeksy aktualnych identyfikatorow
+    chains = [generate_chain(sec, k) for sec in secrets]
+    current_idx = [k for _ in range(n)]
+
+    # Wypisanie wygenerowanych lancuchow dla kazdego uzytkownika w zadanym stylu
+    print("Wygenerowane lancuchy dla uzytkownikow:")
+    for i, ch in enumerate(chains):
+        print(f"\nUzytkownik {i+1}:")
+        # Sekretna wartosc x0
+        print(f"  x0 = {ch[0]}")
+        # Pozostale wartosci lancucha x1...xk
+        for j in range(1, k+1):
+            print(f"  x{j} = {ch[j]}")
+
+    # Poczatkowe identyfikatory, ktore posiada system przed logowaniami
+    print("\nPoczatkowe identyfikatory systemu (x_k dla kazdego uzytkownika):")
+    for i, idx in enumerate(current_idx):
+        print(f"  Uzytkownik {i+1}: {chains[i][idx]}")
+
+    print(f"\nLiczba uzytkownikow: {n}, dlugosc lancucha: {k}, ilosc logowan: {l}\n")
+
+    # Symulacja kolejnych logowan
+    for login_nr in range(1, l + 1):
+        user = random.randrange(n)
+        idx = current_idx[user]
+
+        print(f"--- Logowanie {login_nr} (uzytkownik: {user+1}) ---")
+        print(f"Uzytkownik {user+1} wysyla identyfikator x_{idx} = {chains[user][idx]}")
+        print("System prosi hasla (x_k-1)")
+        print(f"Uzytkownik {user+1} podaje haslo x_{idx-1} = {chains[user][idx-1]}")
+        computed = one_way_function(chains[user][idx-1])
+        print(f"System oblicza f(x_{idx-1}) = {computed}")
+
+        if computed == chains[user][idx]:
+            print("Weryfikacja OK")
+            current_idx[user] -= 1
+            # Po logowaniu: nowy aktualny identyfikator dla uzytkownika
+            print("Nowy aktualny id uzytkownika:", chains[user][current_idx[user]])
+        else:
+            print("Weryfikacja nie powiodla sie")
+        print()
+
+    # Podsumowanie stanu koncowego identyfikatorow
+    print("=== Stan koncowy identyfikatorow ===")
+    for i in range(n):
+        print(f"Uzytkownik {i+1}: nowy identyfikator x_k = {chains[i][current_idx[i]]}")
+
+# Wywolanie symulacji 
+lamport_multiuser_simulation(n=3, k=5, l=3)
