@@ -1,4 +1,4 @@
-# main / ZKWI
+# 3-Rok / ZKWI
 
 Available materials:
 

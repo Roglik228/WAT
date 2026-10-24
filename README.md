@@ -1,6 +1,6 @@
 <div align="center">
 
-# Andrii Godlevskyi
+# Andrzej Godlewski
 ### Cybersecurity & Network Engineering Portfolio
 
 **Junior SOC Analyst · Junior Security Analyst · Junior Network Engineer**
@@ -98,7 +98,7 @@ projects/
 coursework/archive/
 ├── 1-Rok/                              First-year coursework by discipline
 ├── 2-Rok/                              Second-year coursework by discipline
-└── main/                               Later coursework by discipline
+└── 3-Rok/                               Third-year coursework by discipline
 
 docs/LICENSING.md                        Authorship and reuse information
 ```

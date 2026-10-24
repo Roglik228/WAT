@@ -1,4 +1,4 @@
-# main / SW_Projekt
+# 3-Rok / SW_Projekt
 
 Available materials:
 

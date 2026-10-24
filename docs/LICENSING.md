@@ -4,4 +4,4 @@ This repository contains academic code, reports, notes, exercises and course mat
 
 Preserve the attribution included in individual files. Third-party teaching materials and product screenshots may have separate reuse restrictions.
 
-The EST report lists Wiktor Dresler and Andrii Godlevskyi as student authors. Product names and logos belong to their respective owners.
+The EST report is joint coursework by Wiktor Dresler and Andrzej Godlewski. Product names and logos belong to their respective owners.

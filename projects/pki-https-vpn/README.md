@@ -18,7 +18,7 @@ OpenSSL, X.509, Apache, Wireshark, Ubuntu, Windows, OpenVPN, Easy-RSA and UFW.
 
 ## Review and reproduction
 
-Read the [PKI report](../../coursework/archive/main/ZKWI/Godlevskyi_lab1.pdf), [HTTPS report](../../coursework/archive/main/ZKWI/Godlevskyi_lab2.pdf) and [VPN report](../../coursework/archive/main/ZKWI/Godlevskyi_lab4.pdf). Retained screenshots are historical lab evidence, not new captures or redacted screenshots.
+Read the [PKI report](../../coursework/archive/3-Rok/ZKWI/Godlevskyi_lab1.pdf), [HTTPS report](../../coursework/archive/3-Rok/ZKWI/Godlevskyi_lab2.pdf) and [VPN report](../../coursework/archive/3-Rok/ZKWI/Godlevskyi_lab4.pdf). Retained screenshots are historical lab evidence, not new captures or redacted screenshots.
 
 To reproduce, use separate lab VMs and fresh keys/certificates. Assign your own private addresses and local example hostname. Follow the reported sequence: create the CA hierarchy, issue a server certificate, configure Apache, capture HTTP and HTTPS, then verify the certificate chain. Run the VPN exercise separately with new credentials. No private key, .ovpn profile, PCAP or tested installation script is provided.
 
