@@ -1,0 +1,28 @@
+#include <stdio.h>
+
+int main() {
+  //tworzenie zmiennych
+    char N[5];
+    int W = 0, nieZerowa = 0;
+    int *pW, *pnieZerowa;
+
+    pW = &W;
+    pnieZerowa = &nieZerowa;
+//Wpisywanie wwartosci do zmiennej
+    printf("Wpisz liczbe (max 4 cyfry): ");
+    scanf("%4s", N);
+//Znajdowanie ilosci niezerowych cyfr w liczbie
+    for (int i = 0; N[i] != '\0'; i++) {
+        if (N[i] != '0') {
+            (*pnieZerowa)++;
+        }
+    }
+
+    *pW = (*pnieZerowa >= 2) ? 1 : 0;
+//Wypisanie wyniku
+    printf("Wpisana liczba: %s\n", N);
+    printf("W rowna sie: %d\n", W);
+    printf("Iloscniezerowych cyfr: %d\n", nieZerowa);
+
+    return 0;
+}

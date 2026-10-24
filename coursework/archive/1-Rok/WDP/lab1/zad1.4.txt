@@ -1,0 +1,32 @@
+#include <stdio.h>
+
+int main() {
+  //tworzenie zmiennych
+    int a, b,c,*pa,*pb,*pc;
+    int sum = 0, licznik=0,*psum,*plicznik;
+  //tworzenie wskaznikow
+  pa= &a;
+  pb= &b;
+  pc= &c;
+  psum= &sum;
+  plicznik= &licznik;
+  //wprowadzenie wartosci zmiennych
+    printf("Wpisz liczbe a i b: ");
+    scanf("%d %d", &a, &b);
+
+    while ((*psum <= *pa)&&(*plicznik <= *pb)) 
+    {
+      printf("Wpisz liczbe calkowita: ");
+        scanf("%d", &c);//wczytujemy liczby
+      (*psum) += *pc;//dodanie do sumy
+        if (*pc<0) {
+            (*plicznik)++;
+        }
+    }
+  //wypisanie wyniku
+
+    printf("Suma wprowadzonych liczb rowna : %d\n", sum);
+    printf("Ilosc liczb ujemnych: %d\n", licznik);
+
+    return 0;
+}

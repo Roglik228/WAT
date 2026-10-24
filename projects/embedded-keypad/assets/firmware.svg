@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="379" viewBox="0 0 960 379" role="img" aria-label="8051 keypad-to-display firmware">
+<rect width="960" height="379" rx="18" fill="#0f172a"/>
+<text x="36" y="49" fill="#f8fafc" font-family="Arial,sans-serif" font-size="27" font-weight="bold">8051 keypad-to-display firmware</text>
+<rect x="36" y="75" width="888" height="64" rx="9" fill="#1e293b"/>
+<rect x="36" y="75" width="5" height="64" fill="#38bdf8"/>
+<text x="56" y="100" fill="#38bdf8" font-family="Arial,sans-serif" font-size="18" font-weight="bold">Input · Port P2</text>
+<text x="56" y="124" fill="#e2e8f0" font-family="Arial,sans-serif" font-size="16">4×3 keypad scan → debounce loops → character</text>
+<rect x="36" y="153" width="888" height="64" rx="9" fill="#1e293b"/>
+<rect x="36" y="153" width="5" height="64" fill="#34d399"/>
+<text x="56" y="178" fill="#34d399" font-family="Arial,sans-serif" font-size="18" font-weight="bold">State machine</text>
+<text x="56" y="202" fill="#e2e8f0" font-family="Arial,sans-serif" font-size="16">Multi-tap selection · Backspace · Case toggle · Timeout</text>
+<rect x="36" y="231" width="888" height="64" rx="9" fill="#1e293b"/>
+<rect x="36" y="231" width="5" height="64" fill="#c4b5fd"/>
+<text x="56" y="256" fill="#c4b5fd" font-family="Arial,sans-serif" font-size="18" font-weight="bold">Output · Port P1</text>
+<text x="56" y="280" fill="#e2e8f0" font-family="Arial,sans-serif" font-size="16">64-character buffer → four-bit LCD driver</text>
+<text x="36" y="357" fill="#94a3b8" font-family="Arial,sans-serif" font-size="14">Recreated from C source · No hardware or simulator run claimed</text>
+</svg>

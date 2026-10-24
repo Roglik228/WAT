@@ -1,0 +1,124 @@
+# Andrii Godlevskyi WCY23KY1S1
+
+def safe_prime(bits):
+    while True:
+        q = random_prime(2**(bits-2) - 1, lbound=2**(bits-2-1))
+        p = 2*q + 1
+        if is_prime(p):
+            return p, q
+
+def subgroup_generator(p, q):
+    while True:
+        g = randint(2, p-2)
+        if power_mod(g, q, p) == 1 and power_mod(g, 2, p) != 1:
+            return g
+
+def setup(bits=128):
+    p, q = safe_prime(bits)
+    g = subgroup_generator(p, q)
+    return p, q, g
+
+def keypair(q, g, p):
+    x = randint(1, q-1)
+    y = power_mod(g, x, p)
+    return x, y
+
+def sign(m, x, z, g, p, q):
+    t  = randint(1, q-1)
+    T  = power_mod(g, t, p)
+    m_ = (t + z*m) % q
+
+    while True:
+        R = randint(1, p-2)
+        if gcd(R, p-1) == 1:
+            break
+    r = power_mod(g, R, p)
+    s = ((m_ - (r*x) % q) * inverse_mod(R, q)) % q
+    return (r, s, T)
+
+def verify_sim(m_received, sig, m_signed, x, z, y_pub, u_pub, g, p, q,
+               b=None, verbose=False):
+    r, s, T = sig
+    y_true  = power_mod(g, x, p)
+    u_true  = power_mod(g, z, p)
+
+    a = randint(1, q-1)
+    if b is None:
+        b = randint(2, q-1)
+    elif not (2 <= b <= q-1):
+        raise ValueError("error")
+
+    c = (power_mod(T, a + m_received, p) * power_mod(g, b, p)) % p
+    if verbose:
+        print(f"\nKROK 1 (B)\na={a}\nb={b}\nc={c}")
+
+    k  = randint(2, q-1)
+    h1 = (c * power_mod(g, k, p)) % p
+    h2 = ( power_mod(y_true, r*a, p)
+           * power_mod(r,       s*a, p)
+           * power_mod(u_true,  b+k, p) ) % p
+    if verbose:
+        print(f"\nKROK 2 (A)\nk={k}\nh1={h1}\nh2={h2}")
+
+    if verbose:
+        print("\nKROK 3 (B)  – (B) otrzymuje h1, h2")
+
+    if (power_mod(T, a + m_signed, p) * power_mod(g, b, p)) % p != c:
+        if verbose:
+            print("\nKROK 4 (A)  – wiadomość niezgodna")
+        return False
+
+    if verbose:
+        print(f"\nKROK 4 (A)  – wiadomość zgodna, A wysyła k={k}")
+
+    h1_hat = (power_mod(T, a + m_received, p) * power_mod(g, b+k, p)) % p
+    h2_hat = ( power_mod(y_pub, r*a, p)
+               * power_mod(r,     s*a, p)
+               * power_mod(u_pub, b+k, p) ) % p
+
+    ok = (h1_hat == h1 and h2_hat == h2)
+
+    if verbose:
+        print(f"\nKROK 5 (B)\nh1′={h1_hat}   h1={h1}\n"
+              f"h2′={h2_hat}   h2={h2}")
+
+    if ok and verbose:
+        print("Wynik:podpis poprawny")
+        return True
+
+    if verbose:
+        if m_received != m_signed:
+            print("Rezultat: wiadomość niezgodna z podpisem")
+        else:
+            print("Rezultat: zły klucz publiczny lub uszkodzony podpis")
+    return False
+
+def start():
+    bitlen = 160
+    p, q, g = setup(bitlen)
+
+    x, y = keypair(q, g, p)
+    z, u = keypair(q, g, p)
+
+    m1 = randint(2, q-1)
+    m2 = randint(2, q-1)
+    while m2 == m1:
+        m2 = randint(2, q-1)
+    print("Generacja parametrow")
+    print(f"\nDlugosc = {bitlen}")
+    print(f"\nOryginalna wiadomosc: m1 = {m1}")
+    print(f"Zla wiadomosc: m2 = {m2}")
+
+    sig = sign(m1, x, z, g, p, q)
+
+    print("\n==========  Weryfikacja 1: poprawna ==========")
+    print(verify_sim(m1, sig, m1, x, z, y, u, g, p, q, verbose=True))
+
+    print("\n==========  Weryfikacja 2: zmienione m  ==========")
+    print(verify_sim(m2, sig, m1, x, z, y, u, g, p, q, verbose=True))
+
+    print("\n==========  Weryfikacja 3: podmienione y  ==========")
+    y_fake = (y * 3) % p
+    print(verify_sim(m1, sig, m1, x, z, y_fake, u, g, p, q, verbose=True))
+
+start()

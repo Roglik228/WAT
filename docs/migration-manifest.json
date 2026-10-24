@@ -1,0 +1,1413 @@
+{
+  "refs": {
+    "main": "55bd0045820d5d55434ab234f778b8396c2cf7f3",
+    "1-Rok": "e857fba25ca8cbfaa68d4760c85d71a68a65c026",
+    "2-Rok": "8f0b3ccf6bc4d92e7cc7587c6894c24b71e479ac",
+    "3-Rok": "1f20a325b373e71179ee423c77ee10be05f17503"
+  },
+  "files": [
+    {
+      "branch": "main",
+      "original_path": "BPiE/CW1_Godlevskyi_Andrii_WCY23KC1S1.docx",
+      "sha256": "8e1f6cecfb550a9182ceb98d64ba950918fe8e2e099284187e93fa801b8f16ef",
+      "bytes": 31628,
+      "disposition": "sanitized_text",
+      "new_path": "coursework/archive/main/BPiE/CW1_Godlevskyi_Andrii_WCY23KC1S1.redacted.txt",
+      "flags": [
+        "student_identifier"
+      ]
+    },
+    {
+      "branch": "main",
+      "original_path": "BPiE/cw2_spr_Godlevskyi_Andrii_WCY23KC1S1.docx",
+      "sha256": "7309893e55c64c4c90012578c856738dbbadc5c092e94ed90f8c3ba8f3ce99d2",
+      "bytes": 233411,
+      "disposition": "sanitized_text",
+      "new_path": "coursework/archive/main/BPiE/cw2_spr_Godlevskyi_Andrii_WCY23KC1S1.redacted.txt",
+      "flags": [
+        "student_identifier"
+      ]
+    },
+    {
+      "branch": "main",
+      "original_path": "BSBP/poprawka.pdf",
+      "sha256": "eb66a3b41a26baac462b919310baf0b03dbb84d9586aefcdad93cda6cc8fd89b",
+      "bytes": 140141,
+      "disposition": "archived_original",
+      "new_path": "coursework/archive/main/BSBP/poprawka.pdf",
+      "flags": []
+    },
+    {
+      "branch": "main",
+      "original_path": "BSBP/qbinaukabezprze_250617_174618.pdf",
+      "sha256": "be2b5f11fa056aa6344ae1dde2aefe37ab4990ef784f7246d63eeda9b82c164d",
+      "bytes": 1403130,
+      "disposition": "archived_original",
+      "new_path": "coursework/archive/main/BSBP/qbinaukabezprze_250617_174618.pdf",
+      "flags": []
+    },
+    {
+      "branch": "main",
+      "original_path": "BSBP/SIB_20pytania_20i_20odpowiedzi.pdf",
+      "sha256": "fd882e2bf8b47241f5a21ae64a2271ab8bdc4568e801fb9bc4891900494aee24",
+      "bytes": 256279,
+      "disposition": "archived_original",
+      "new_path": "coursework/archive/main/BSBP/SIB_20pytania_20i_20odpowiedzi.pdf",
+      "flags": []
+    },
+    {
+      "branch": "main",
+      "original_path": "EST/EST_projekt_Dresler_Godlevskyi_WCY23KC1S1.pdf",
+      "sha256": "33043d78173013e8f1e1d5c0a5daf9465523402ffb122be74af4719e709253db",
+      "bytes": 6575513,
+      "disposition": "archived_original",
+      "new_path": "coursework/archive/main/EST/EST_projekt_Dresler_Godlevskyi_WCY23KC1S1.pdf",
+      "flags": [
+        "IP_requires_context"
+      ]
+    },
+    {
+      "branch": "main",
+      "original_path": "HTML/test-odpowiedzi.pdf",
+      "sha256": "f5bd6b38b19fb75f012a862574cc390a36865c3583304877cfc74ac8d31d781f",
+      "bytes": 232725,
+      "disposition": "archived_original",
+      "new_path": "coursework/archive/main/HTML/test-odpowiedzi.pdf",
+      "flags": []
+    },
+    {
+      "branch": "main",
+      "original_path": "ONI/Projekt/C++G/decryptor.py",
+      "sha256": "1a55474a4051d3d43666be204d3ebb2c8621e9ff7b413a72b3e61db6ddd2828c",
+      "bytes": 1287,
+      "disposition": "private_only",
+      "new_path": "",
+      "flags": [
+        "active_sample_or_embedded_content_review"
+      ]
+    },
+    {
+      "branch": "main",
+      "original_path": "ONI/Projekt/C++G/HardwareDiagnostic.manifest",
+      "sha256": "1679c83f2821c875fe80e5f3e48226724bc3b1c048a479c6146e93f6330de8c4",
+      "bytes": 641,
+      "disposition": "private_only",
+      "new_path": "",
+      "flags": [
+        "active_sample_or_embedded_content_review"
+      ]
+    },
+    {
+      "branch": "main",
+      "original_path": "ONI/Projekt/C++G/HardwareDiagnosticService.exe",
+      "sha256": "75c6f5e04054ccdc8b4697b6ee45847ad3a88caeb24ffb8fb0c50e8c5734ebc8",
+      "bytes": 441856,
+      "disposition": "private_only",
+      "new_path": "",
+      "flags": [
+        "active_sample_or_embedded_content_review"
+      ]
+    },
+    {
+      "branch": "main",
+      "original_path": "ONI/Projekt/C++G/mail.txt",
+      "sha256": "ddeeba107671d6fe8be600650df7ee67fc16ba7fd09f579b07be92ee203b207c",
+      "bytes": 1439,
+      "disposition": "private_only",
+      "new_path": "",
+      "flags": [
+        "email",
+        "collection_endpoint",
+        "credential_notes"
+      ]
+    },
+    {
+      "branch": "main",
+      "original_path": "ONI/Projekt/C++G/main.cpp",
+      "sha256": "0b262f9a4c7e02915585e009a8998f3b9a499c17d79a96d3bbc96a8f70919038",
+      "bytes": 19058,
+      "disposition": "private_only",
+      "new_path": "",
+      "flags": [
+        "collection_endpoint",
+        "active_sample_or_embedded_content_review"
+      ]
+    },
+    {
+      "branch": "main",
+      "original_path": "ONI/Projekt/C++G/Projekt_GodlevskyiA.docx",
+      "sha256": "bc42b961142090754b25ab5cc533312d43bb1153535e54e37979358072cb0ccd",
+      "bytes": 1821776,
+      "disposition": "private_only",
+      "new_path": "",
+      "flags": [
+        "email",
+        "active_sample_or_embedded_content_review"
+      ]
+    },
+    {
+      "branch": "main",
+      "original_path": "ONI/Projekt/C++G/Projekt_GodlevskyiA.pdf",
+      "sha256": "e0be10a3e55995f166c75095510916275769976174e262ddbd274d4f0828ed77",
+      "bytes": 234511,
+      "disposition": "private_only",
+      "new_path": "",
+      "flags": [
+        "email",
+        "active_sample_or_embedded_content_review"
+      ]
+    },
+    {
+      "branch": "main",
+      "original_path": "ONI/Projekt/C++G/version.rc",
+      "sha256": "5cca17b3feb3eb78661d5ec0a367203ce73701e484975aa10c4ea34190e6ea6a",
+      "bytes": 940,
+      "disposition": "private_only",
+      "new_path": "",
+      "flags": [
+        "IP_requires_context",
+        "active_sample_or_embedded_content_review"
+      ]
+    },
+    {
+      "branch": "main",
+      "original_path": "ONI/Projekt/ONiIK_ZADANIE_P_2026Lv2.pdf",
+      "sha256": "e90b58682a840bf9c769ab20314e87b27977022ab5b97b043a1d7388a899fdee",
+      "bytes": 137493,
+      "disposition": "private_only",
+      "new_path": "",
+      "flags": [
+        "active_sample_or_embedded_content_review"
+      ]
+    },
+    {
+      "branch": "main",
+      "original_path": "PBI/Godlevskyi_Andrii_WCY23KC1S1-Zadanie_1.docx",
+      "sha256": "436e6f6fdecbb3b55d34fc4fc7cdb17f6d19f2d8bc4e62329b7a058fba3d8c44",
+      "bytes": 16670,
+      "disposition": "archived_original",
+      "new_path": "coursework/archive/main/PBI/Godlevskyi_Andrii_WCY23KC1S1-Zadanie_1.docx",
+      "flags": []
+    },
+    {
+      "branch": "main",
+      "original_path": "PBI/Godlevskyi_Andrii_WCY23KC1S1-Zadanie_2.docx",
+      "sha256": "8f809657de5e4c6881795a96b1febc56802c2c8fcc5a522b4d0068ab1c2b3732",
+      "bytes": 13570,
+      "disposition": "archived_original",
+      "new_path": "coursework/archive/main/PBI/Godlevskyi_Andrii_WCY23KC1S1-Zadanie_2.docx",
+      "flags": []
+    },
+    {
+      "branch": "main",
+      "original_path": "PBI/Godlevskyi_Andrii_WCY23KC1S1-Zadanie_3.docx",
+      "sha256": "ef582b5715eb6f27a6c5c142a61a9edd07822f1deb290d6f463e52310db09d9b",
+      "bytes": 563333,
+      "disposition": "archived_original",
+      "new_path": "coursework/archive/main/PBI/Godlevskyi_Andrii_WCY23KC1S1-Zadanie_3.docx",
+      "flags": [
+        "email",
+        "IP_requires_context"
+      ]
+    },
+    {
+      "branch": "main",
+      "original_path": "PBI/PBI.docx",
+      "sha256": "b10cbbd9f14fd86fc5f6cf850d718a104df5a2162dc2a1c989e113b3ff047c1f",
+      "bytes": 10217920,
+      "disposition": "archived_original",
+      "new_path": "coursework/archive/main/PBI/PBI.docx",
+      "flags": []
+    },
+    {
+      "branch": "main",
+      "original_path": "PBI/PBI_beton.pdf",
+      "sha256": "d7fbb5189cc360e3e3a7e1857a2d341946e8e6230d6413b5d1ae514d414fde12",
+      "bytes": 183245,
+      "disposition": "archived_original",
+      "new_path": "coursework/archive/main/PBI/PBI_beton.pdf",
+      "flags": []
+    },
+    {
+      "branch": "main",
+      "original_path": "PBI/PBI_zaliczenie_wsio.pdf",
+      "sha256": "a5d05ae133aa48c85ec0795cf00565b0db54aacba13f1d4b48d7857bab4f8452",
+      "bytes": 3920433,
+      "disposition": "archived_original",
+      "new_path": "coursework/archive/main/PBI/PBI_zaliczenie_wsio.pdf",
+      "flags": []
+    },
+    {
+      "branch": "main",
+      "original_path": "PPZ/PPZ_Projekt.zip",
+      "sha256": "55dea811a1ba6392d4ec4468e21efb242241bb82a8aaa514ee5d997b2ae672b0",
+      "bytes": 3155,
+      "disposition": "archived_original",
+      "new_path": "coursework/archive/main/PPZ/PPZ_Projekt.zip",
+      "flags": []
+    },
+    {
+      "branch": "main",
+      "original_path": "README.md",
+      "sha256": "47ce557810fd67b073bf1b6f1174e681d020aaa2032512c9f0f6a99b0555367e",
+      "bytes": 165,
+      "disposition": "archived_original",
+      "new_path": "coursework/archive/main/_metadata/README.md",
+      "flags": []
+    },
+    {
+      "branch": "main",
+      "original_path": "SW_Projekt/prpr/lcd.c",
+      "sha256": "d676e28a9624900340016c7b99f3b3f037145ae8c644dbf07f5472fa10e3bc9d",
+      "bytes": 1544,
+      "disposition": "archived_original",
+      "new_path": "coursework/archive/main/SW_Projekt/prpr/lcd.c",
+      "flags": []
+    },
+    {
+      "branch": "main",
+      "original_path": "SW_Projekt/prpr/main.c",
+      "sha256": "63d962fdda0cbb8369e76b8b0c2291abdeb455b4eb6ac223826e11c6dbdcf077",
+      "bytes": 4411,
+      "disposition": "archived_original",
+      "new_path": "coursework/archive/main/SW_Projekt/prpr/main.c",
+      "flags": []
+    },
+    {
+      "branch": "main",
+      "original_path": "SW_Projekt/prpr/PROJ2.pdsprj",
+      "sha256": "f3b791bb04151b32adc9d82338efdcc5abe35070dfb0067d7adcd68e4881958c",
+      "bytes": 39170,
+      "disposition": "archived_original",
+      "new_path": "coursework/archive/main/SW_Projekt/prpr/PROJ2.pdsprj",
+      "flags": []
+    },
+    {
+      "branch": "main",
+      "original_path": "ZKWI/Godlevskyi_lab1.pdf",
+      "sha256": "b537f8d5f34042340e8f06dac97ca24ecf78b900e92516192629b485d1161dc9",
+      "bytes": 1465686,
+      "disposition": "archived_original",
+      "new_path": "coursework/archive/main/ZKWI/Godlevskyi_lab1.pdf",
+      "flags": []
+    },
+    {
+      "branch": "main",
+      "original_path": "ZKWI/Godlevskyi_lab2.pdf",
+      "sha256": "f2d08fb585d892483bff73b1b3cf824ce02cb9f4fadfa056c995d0bd0b5d85f9",
+      "bytes": 1572103,
+      "disposition": "archived_original",
+      "new_path": "coursework/archive/main/ZKWI/Godlevskyi_lab2.pdf",
+      "flags": [
+        "IP_requires_context"
+      ]
+    },
+    {
+      "branch": "main",
+      "original_path": "ZKWI/Godlevskyi_lab3.pdf",
+      "sha256": "b79ae0b0540b96cafc282c3d9074085a52ce154c5218b0b5b96ba9070b62a2b3",
+      "bytes": 946601,
+      "disposition": "archived_original",
+      "new_path": "coursework/archive/main/ZKWI/Godlevskyi_lab3.pdf",
+      "flags": []
+    },
+    {
+      "branch": "main",
+      "original_path": "ZKWI/Godlevskyi_lab4.pdf",
+      "sha256": "43b30294567ad27f6bc12294d0ec845928635fbeb27efcbac2f2019262eb10e7",
+      "bytes": 446792,
+      "disposition": "archived_original",
+      "new_path": "coursework/archive/main/ZKWI/Godlevskyi_lab4.pdf",
+      "flags": [
+        "email",
+        "IP_requires_context"
+      ]
+    },
+    {
+      "branch": "1-Rok",
+      "original_path": "Kolokwia/Z IV pyt 4.PNG",
+      "sha256": "4f5b9d81017343609bd70588d984d7c1a761f54c514908ead00321ef63b0e88f",
+      "bytes": 1235107,
+      "disposition": "archived_original",
+      "new_path": "coursework/archive/1-Rok/Kolokwia/Z IV pyt 4.PNG",
+      "flags": []
+    },
+    {
+      "branch": "1-Rok",
+      "original_path": "Kolokwia/Zad1.docx",
+      "sha256": "904ff8b775d72202f67ba14c7fc7dd1eb64be316333b496b81039e9008982312",
+      "bytes": 485196,
+      "disposition": "archived_original",
+      "new_path": "coursework/archive/1-Rok/Kolokwia/Zad1.docx",
+      "flags": []
+    },
+    {
+      "branch": "1-Rok",
+      "original_path": "Kolokwia/Zad1.pdf",
+      "sha256": "900c1af1cb125ce28533f74242eae5541391600e9eeff67cb4cfa586c79c377e",
+      "bytes": 360727,
+      "disposition": "archived_original",
+      "new_path": "coursework/archive/1-Rok/Kolokwia/Zad1.pdf",
+      "flags": []
+    },
+    {
+      "branch": "1-Rok",
+      "original_path": "Kolokwia/Zad2.docx",
+      "sha256": "6d0c1750818d22276374261fdd62244a8fdd659481b50820faf4aec5877b12d8",
+      "bytes": 177800,
+      "disposition": "archived_original",
+      "new_path": "coursework/archive/1-Rok/Kolokwia/Zad2.docx",
+      "flags": []
+    },
+    {
+      "branch": "1-Rok",
+      "original_path": "Kolokwia/Zad2.pdf",
+      "sha256": "222dbacae1174452164398d0fc81fd15c886d30b82baef2cdf2f068a31f283fc",
+      "bytes": 331986,
+      "disposition": "archived_original",
+      "new_path": "coursework/archive/1-Rok/Kolokwia/Zad2.pdf",
+      "flags": []
+    },
+    {
+      "branch": "1-Rok",
+      "original_path": "ppk/lab34/1.ms14",
+      "sha256": "8dd12bb2bb1a55ab62d52d38efd631641e7be9943081a5f785773633e267d89e",
+      "bytes": 378920,
+      "disposition": "archived_original",
+      "new_path": "coursework/archive/1-Rok/ppk/lab34/1.ms14",
+      "flags": []
+    },
+    {
+      "branch": "1-Rok",
+      "original_path": "ppk/lab34/1.ms14 (Security copy)",
+      "sha256": "5cf340d727e07e27f99b72c30bc4aacbdbfdb9ee64fb45984bcafa6ba0be2cb6",
+      "bytes": 109265,
+      "disposition": "archived_original",
+      "new_path": "coursework/archive/1-Rok/ppk/lab34/1.ms14 (Security copy)",
+      "flags": []
+    },
+    {
+      "branch": "1-Rok",
+      "original_path": "ppk/lab34/2.ms14",
+      "sha256": "b21045c1278ea5b6c22c66381562c8398a94df84d99758bf4cb9f63dfdac0543",
+      "bytes": 230908,
+      "disposition": "archived_original",
+      "new_path": "coursework/archive/1-Rok/ppk/lab34/2.ms14",
+      "flags": []
+    },
+    {
+      "branch": "1-Rok",
+      "original_path": "ppk/lab34/3.ms14",
+      "sha256": "7618f4255b8cc365d228fe5e703cde6b75b1ee79f40d0dee35fcd57c2b45f415",
+      "bytes": 149885,
+      "disposition": "archived_original",
+      "new_path": "coursework/archive/1-Rok/ppk/lab34/3.ms14",
+      "flags": []
+    },
+    {
+      "branch": "1-Rok",
+      "original_path": "ppk/lab34/3good.ms14 (Security copy)",
+      "sha256": "af8a4dfd6019c50ec620c9006f4edcbfe08a87ad420dd0cdd3b33e5918baf6ea",
+      "bytes": 148799,
+      "disposition": "archived_original",
+      "new_path": "coursework/archive/1-Rok/ppk/lab34/3good.ms14 (Security copy)",
+      "flags": []
+    },
+    {
+      "branch": "1-Rok",
+      "original_path": "ppk/lab34/3sprawko.ms14",
+      "sha256": "0809c90b30e101e14d7c4889260752aacfd234f00751d80a62d89f4d2beeea48",
+      "bytes": 148672,
+      "disposition": "archived_original",
+      "new_path": "coursework/archive/1-Rok/ppk/lab34/3sprawko.ms14",
+      "flags": []
+    },
+    {
+      "branch": "1-Rok",
+      "original_path": "ppk/lab34/S1.png",
+      "sha256": "f2f90c40bf840d9b5acea236c5d211c3529694179358f68376720fa614289596",
+      "bytes": 48244,
+      "disposition": "archived_original",
+      "new_path": "coursework/archive/1-Rok/ppk/lab34/S1.png",
+      "flags": []
+    },
+    {
+      "branch": "1-Rok",
+      "original_path": "ppk/lab34/S2.png",
+      "sha256": "945219d667050c8bd54f343bd1688aa866460b5258371b9863794a0441aa23a4",
+      "bytes": 47807,
+      "disposition": "archived_original",
+      "new_path": "coursework/archive/1-Rok/ppk/lab34/S2.png",
+      "flags": []
+    },
+    {
+      "branch": "1-Rok",
+      "original_path": "ppk/Przyklad_Sprawozdania_Uklady_Kombinacyjne.pdf",
+      "sha256": "0fdc8a38d4a564c1b9bc540e6639254e2d47e2c9274b8dce85e2519ab03ade21",
+      "bytes": 1038659,
+      "disposition": "archived_original",
+      "new_path": "coursework/archive/1-Rok/ppk/Przyklad_Sprawozdania_Uklady_Kombinacyjne.pdf",
+      "flags": []
+    },
+    {
+      "branch": "1-Rok",
+      "original_path": "ppk/Przyklad_Sprawozdania_Uklady_Sekwencyjne.pdf",
+      "sha256": "55f0555dafdb2974a77b1bdd3888a5396832424ca011b0d9343db0ad98974d7a",
+      "bytes": 887667,
+      "disposition": "archived_original",
+      "new_path": "coursework/archive/1-Rok/ppk/Przyklad_Sprawozdania_Uklady_Sekwencyjne.pdf",
+      "flags": []
+    },
+    {
+      "branch": "1-Rok",
+      "original_path": "ppk/Sprawozdanie3.docx",
+      "sha256": "c8f725efae9347890422b7542f4784e35425a75d31a889999633ffc7c0d332d9",
+      "bytes": 300688,
+      "disposition": "archived_original",
+      "new_path": "coursework/archive/1-Rok/ppk/Sprawozdanie3.docx",
+      "flags": []
+    },
+    {
+      "branch": "1-Rok",
+      "original_path": "ppk/Sprawozdanie3.pdf",
+      "sha256": "f0f5b321c26123ec1b4b0ae5013848a17b13f071b430dc4ff8433aed5f1c6e5c",
+      "bytes": 564915,
+      "disposition": "archived_original",
+      "new_path": "coursework/archive/1-Rok/ppk/Sprawozdanie3.pdf",
+      "flags": []
+    },
+    {
+      "branch": "1-Rok",
+      "original_path": "ppk/wejsciowa2.png",
+      "sha256": "54b4db4bde632eaa3246be32e9199a9b5fb0b1bef77e01641891ad19f1d7355a",
+      "bytes": 1174972,
+      "disposition": "archived_original",
+      "new_path": "coursework/archive/1-Rok/ppk/wejsciowa2.png",
+      "flags": []
+    },
+    {
+      "branch": "1-Rok",
+      "original_path": "PTK/zad7.pdf",
+      "sha256": "e78ed6d3762f85b0df601c92c45dbdedc2133a0b5655127db61c0aafe79aaa3e",
+      "bytes": 982768,
+      "disposition": "archived_original",
+      "new_path": "coursework/archive/1-Rok/PTK/zad7.pdf",
+      "flags": []
+    },
+    {
+      "branch": "1-Rok",
+      "original_path": "PTK/zad8.pdf",
+      "sha256": "7f970edb0a9d20e579754141d565e003e467cfce138c1bfbd791737970054a9f",
+      "bytes": 192781,
+      "disposition": "archived_original",
+      "new_path": "coursework/archive/1-Rok/PTK/zad8.pdf",
+      "flags": []
+    },
+    {
+      "branch": "1-Rok",
+      "original_path": "README.md",
+      "sha256": "9bdc756f48757605937d4b222cd64c2378a0ac46d963f71b00c2916842ae69dd",
+      "bytes": 155,
+      "disposition": "archived_original",
+      "new_path": "coursework/archive/1-Rok/_metadata/README.md",
+      "flags": []
+    },
+    {
+      "branch": "1-Rok",
+      "original_path": "WDP/lab1/1.2.docx",
+      "sha256": "338f2f0d357f0fe296af483e2b6afcc6001e2cc066a155368b83d81f6652d80b",
+      "bytes": 616774,
+      "disposition": "archived_original",
+      "new_path": "coursework/archive/1-Rok/WDP/lab1/1.2.docx",
+      "flags": []
+    },
+    {
+      "branch": "1-Rok",
+      "original_path": "WDP/lab1/1.3.docx",
+      "sha256": "73b68ffda9d2afabf1a5d3f360ef99a212e3843d24fa7879a9db604e02ed6dc2",
+      "bytes": 555459,
+      "disposition": "archived_original",
+      "new_path": "coursework/archive/1-Rok/WDP/lab1/1.3.docx",
+      "flags": []
+    },
+    {
+      "branch": "1-Rok",
+      "original_path": "WDP/lab1/1.4.docx",
+      "sha256": "6b921de09b6e4c2764ccf8229ade1e7b0b0d30e3ca3d89e5708d762cc085a877",
+      "bytes": 572083,
+      "disposition": "archived_original",
+      "new_path": "coursework/archive/1-Rok/WDP/lab1/1.4.docx",
+      "flags": []
+    },
+    {
+      "branch": "1-Rok",
+      "original_path": "WDP/lab1/1.5.docx",
+      "sha256": "4691ffab698ad66a9063f6619a8e8c483f8211029fbace01ad39d0510c6e9aa2",
+      "bytes": 483943,
+      "disposition": "archived_original",
+      "new_path": "coursework/archive/1-Rok/WDP/lab1/1.5.docx",
+      "flags": []
+    },
+    {
+      "branch": "1-Rok",
+      "original_path": "WDP/lab1/1.6.docx",
+      "sha256": "efa223dd07d3a1fce81dff4013a90cc5831104fd4d3ab0f605cb0f032dcfa86a",
+      "bytes": 601073,
+      "disposition": "archived_original",
+      "new_path": "coursework/archive/1-Rok/WDP/lab1/1.6.docx",
+      "flags": []
+    },
+    {
+      "branch": "1-Rok",
+      "original_path": "WDP/lab1/zad1.1.txt",
+      "sha256": "c1eda3508e657e1dbdc0af3fe1b38b60b6037abfb31f2ab18f0b4170c07d10d3",
+      "bytes": 1371,
+      "disposition": "archived_original",
+      "new_path": "coursework/archive/1-Rok/WDP/lab1/zad1.1.txt",
+      "flags": []
+    },
+    {
+      "branch": "1-Rok",
+      "original_path": "WDP/lab1/zad1.2.txt",
+      "sha256": "9c154cbd5967d15713ed496cf5e18b2d06c649dfab3090b73ff273a6ed4100ba",
+      "bytes": 801,
+      "disposition": "archived_original",
+      "new_path": "coursework/archive/1-Rok/WDP/lab1/zad1.2.txt",
+      "flags": []
+    },
+    {
+      "branch": "1-Rok",
+      "original_path": "WDP/lab1/zad1.3.txt",
+      "sha256": "02f45a40850880edb955e0264f7e55745f02de86890f8f4a87ad06680382c16a",
+      "bytes": 750,
+      "disposition": "archived_original",
+      "new_path": "coursework/archive/1-Rok/WDP/lab1/zad1.3.txt",
+      "flags": []
+    },
+    {
+      "branch": "1-Rok",
+      "original_path": "WDP/lab1/zad1.4.txt",
+      "sha256": "b7a080dbf659dace1b4adc9a6174324bbe8aee00c86e48e49a425ae220a7d427",
+      "bytes": 742,
+      "disposition": "archived_original",
+      "new_path": "coursework/archive/1-Rok/WDP/lab1/zad1.4.txt",
+      "flags": []
+    },
+    {
+      "branch": "1-Rok",
+      "original_path": "WDP/lab1/zad1.5.txt",
+      "sha256": "0b446290118300229f76549e70c4f1fbb65772608f2911dab5e2a41964f6a13c",
+      "bytes": 856,
+      "disposition": "archived_original",
+      "new_path": "coursework/archive/1-Rok/WDP/lab1/zad1.5.txt",
+      "flags": []
+    },
+    {
+      "branch": "1-Rok",
+      "original_path": "WDP/lab1/zad1.6.txt",
+      "sha256": "dccc373a88962e75b2f9bdbeb4a898c85a6869093f51fefa8169734cf62fa53f",
+      "bytes": 662,
+      "disposition": "archived_original",
+      "new_path": "coursework/archive/1-Rok/WDP/lab1/zad1.6.txt",
+      "flags": []
+    },
+    {
+      "branch": "1-Rok",
+      "original_path": "WDP/lab2/2.1.docx",
+      "sha256": "c1cb2df00b75ebff9a38102a93b5a42390ff4efc19147775def68faeda57b0aa",
+      "bytes": 863720,
+      "disposition": "archived_original",
+      "new_path": "coursework/archive/1-Rok/WDP/lab2/2.1.docx",
+      "flags": []
+    },
+    {
+      "branch": "1-Rok",
+      "original_path": "WDP/lab2/2.1.txt",
+      "sha256": "b9e6a9565030465dfa7d4e78216534bbafae1efc5a3933bd2009ef5ac0ea496a",
+      "bytes": 946,
+      "disposition": "archived_original",
+      "new_path": "coursework/archive/1-Rok/WDP/lab2/2.1.txt",
+      "flags": []
+    },
+    {
+      "branch": "1-Rok",
+      "original_path": "WDP/lab2/2.2.docx",
+      "sha256": "2fec41ceafa947aaa35ec881bfbeab09e9287d8c84ed3a122eedf6617e6b3d78",
+      "bytes": 576689,
+      "disposition": "archived_original",
+      "new_path": "coursework/archive/1-Rok/WDP/lab2/2.2.docx",
+      "flags": []
+    },
+    {
+      "branch": "1-Rok",
+      "original_path": "WDP/lab2/2.2.txt",
+      "sha256": "e94c1a5fdac680987fd0980993c8181c058d35d87b4842d0138c599f725e14aa",
+      "bytes": 1412,
+      "disposition": "archived_original",
+      "new_path": "coursework/archive/1-Rok/WDP/lab2/2.2.txt",
+      "flags": []
+    },
+    {
+      "branch": "1-Rok",
+      "original_path": "WDP/lab2/2.3.docx",
+      "sha256": "942b034da27c7771d3cde460815b03a4144904d057596e1faaa50b6d8d81da78",
+      "bytes": 524115,
+      "disposition": "archived_original",
+      "new_path": "coursework/archive/1-Rok/WDP/lab2/2.3.docx",
+      "flags": []
+    },
+    {
+      "branch": "1-Rok",
+      "original_path": "WDP/lab2/2.3.txt",
+      "sha256": "0e465f780c9506ddf3e92c2c6cfdd6fc51ae522a48b45021da1c5c447952ff2a",
+      "bytes": 424,
+      "disposition": "archived_original",
+      "new_path": "coursework/archive/1-Rok/WDP/lab2/2.3.txt",
+      "flags": []
+    },
+    {
+      "branch": "1-Rok",
+      "original_path": "WDP/lab2/2.4.docx",
+      "sha256": "8fc36ff015b9da3a0ef27d307fd78203264a25061b4239235c6c4405e0864b7a",
+      "bytes": 514438,
+      "disposition": "archived_original",
+      "new_path": "coursework/archive/1-Rok/WDP/lab2/2.4.docx",
+      "flags": []
+    },
+    {
+      "branch": "1-Rok",
+      "original_path": "WDP/lab2/2.4.txt",
+      "sha256": "2f3c79e86f7c9d8d9d89fb8d1634877edd39e1610035c5ddbea25e20137f095a",
+      "bytes": 614,
+      "disposition": "archived_original",
+      "new_path": "coursework/archive/1-Rok/WDP/lab2/2.4.txt",
+      "flags": []
+    },
+    {
+      "branch": "1-Rok",
+      "original_path": "WDP/lab2/2.5.docx",
+      "sha256": "7a11b344aba48846aa9d300bd388dce271e162bce6cd1c9f7d816151004d6a9a",
+      "bytes": 519782,
+      "disposition": "archived_original",
+      "new_path": "coursework/archive/1-Rok/WDP/lab2/2.5.docx",
+      "flags": []
+    },
+    {
+      "branch": "1-Rok",
+      "original_path": "WDP/lab2/2.5.txt",
+      "sha256": "6932285485bbbd04547fbb3f533f0854ad713f5a836867b57a3b3ec618999e0c",
+      "bytes": 547,
+      "disposition": "archived_original",
+      "new_path": "coursework/archive/1-Rok/WDP/lab2/2.5.txt",
+      "flags": []
+    },
+    {
+      "branch": "1-Rok",
+      "original_path": "WDP/lab2/2.6.docx",
+      "sha256": "2ea8e6541f01207fb18337b433ea9a8244303ba469977e89a5193a802191379f",
+      "bytes": 545759,
+      "disposition": "archived_original",
+      "new_path": "coursework/archive/1-Rok/WDP/lab2/2.6.docx",
+      "flags": []
+    },
+    {
+      "branch": "1-Rok",
+      "original_path": "WDP/lab2/2.6.txt",
+      "sha256": "e707e97d42fa72518710b15c1f5f07d9ee4ca5ee07c93a68b1f9e1242e36d5d7",
+      "bytes": 1087,
+      "disposition": "archived_original",
+      "new_path": "coursework/archive/1-Rok/WDP/lab2/2.6.txt",
+      "flags": []
+    },
+    {
+      "branch": "1-Rok",
+      "original_path": "WDP/lab2/2.7.docx",
+      "sha256": "24038ca384e8a3d47b91488dff66d6cc46507e39dd61a554ae3cc05bf8ed09b1",
+      "bytes": 431696,
+      "disposition": "archived_original",
+      "new_path": "coursework/archive/1-Rok/WDP/lab2/2.7.docx",
+      "flags": []
+    },
+    {
+      "branch": "1-Rok",
+      "original_path": "WDP/lab2/2.7.txt",
+      "sha256": "490fa49bd3fda6c805898fa52506c6b651d2e6dd97b3f7c0934dd0ff7bd25f12",
+      "bytes": 663,
+      "disposition": "archived_original",
+      "new_path": "coursework/archive/1-Rok/WDP/lab2/2.7.txt",
+      "flags": []
+    },
+    {
+      "branch": "1-Rok",
+      "original_path": "WDP/lab3/3.1.docx",
+      "sha256": "b1bc885a7ec6e9b0e52f87802285be1a2d3cb22237fa26463ce33e129e75d9d3",
+      "bytes": 659029,
+      "disposition": "archived_original",
+      "new_path": "coursework/archive/1-Rok/WDP/lab3/3.1.docx",
+      "flags": []
+    },
+    {
+      "branch": "1-Rok",
+      "original_path": "WDP/lab3/3.1.txt",
+      "sha256": "1eea673af21e7dad3818e69e087b8aa0f56d70ff3e55137735d409e28d7a0c07",
+      "bytes": 799,
+      "disposition": "archived_original",
+      "new_path": "coursework/archive/1-Rok/WDP/lab3/3.1.txt",
+      "flags": []
+    },
+    {
+      "branch": "1-Rok",
+      "original_path": "WDP/lab3/3.2.docx",
+      "sha256": "435a1f2c7cef99a60bc9d52a91ac37423eda6163080b50083db719928ef41391",
+      "bytes": 862812,
+      "disposition": "archived_original",
+      "new_path": "coursework/archive/1-Rok/WDP/lab3/3.2.docx",
+      "flags": []
+    },
+    {
+      "branch": "1-Rok",
+      "original_path": "WDP/lab3/3.2.txt",
+      "sha256": "b9e6a9565030465dfa7d4e78216534bbafae1efc5a3933bd2009ef5ac0ea496a",
+      "bytes": 946,
+      "disposition": "archived_original",
+      "new_path": "coursework/archive/1-Rok/WDP/lab3/3.2.txt",
+      "flags": []
+    },
+    {
+      "branch": "1-Rok",
+      "original_path": "WDP/lab3/3.3.docx",
+      "sha256": "59e500bf1dff31023ebe111c21783b50817e843f100d0628535348e2b2b83f53",
+      "bytes": 576516,
+      "disposition": "archived_original",
+      "new_path": "coursework/archive/1-Rok/WDP/lab3/3.3.docx",
+      "flags": []
+    },
+    {
+      "branch": "1-Rok",
+      "original_path": "WDP/lab3/3.3.txt",
+      "sha256": "e94c1a5fdac680987fd0980993c8181c058d35d87b4842d0138c599f725e14aa",
+      "bytes": 1412,
+      "disposition": "archived_original",
+      "new_path": "coursework/archive/1-Rok/WDP/lab3/3.3.txt",
+      "flags": []
+    },
+    {
+      "branch": "1-Rok",
+      "original_path": "WDP/lab3/3.4.docx",
+      "sha256": "27b651db02c24b23aa1c3fc0820817d39c68d158111139dc608a48f6f3aaf7b9",
+      "bytes": 422805,
+      "disposition": "archived_original",
+      "new_path": "coursework/archive/1-Rok/WDP/lab3/3.4.docx",
+      "flags": []
+    },
+    {
+      "branch": "1-Rok",
+      "original_path": "WDP/lab3/3.4.txt",
+      "sha256": "6bcf7c4eb0870e438e891af2bc04c167860b2c5624628776b4653ee1cabd87e6",
+      "bytes": 1300,
+      "disposition": "archived_original",
+      "new_path": "coursework/archive/1-Rok/WDP/lab3/3.4.txt",
+      "flags": []
+    },
+    {
+      "branch": "1-Rok",
+      "original_path": "WDP/lab3/3.5.docx",
+      "sha256": "ceab63e35803f3d75f0efc5edc86a77c0b8f031b63304e7ad040668630369e2d",
+      "bytes": 483557,
+      "disposition": "archived_original",
+      "new_path": "coursework/archive/1-Rok/WDP/lab3/3.5.docx",
+      "flags": []
+    },
+    {
+      "branch": "1-Rok",
+      "original_path": "WDP/lab3/3.5.txt",
+      "sha256": "833c1836c842e4c6400a1b3b6e10886055a88b633eda0bfd976cbbc581cc9bec",
+      "bytes": 1795,
+      "disposition": "archived_original",
+      "new_path": "coursework/archive/1-Rok/WDP/lab3/3.5.txt",
+      "flags": []
+    },
+    {
+      "branch": "1-Rok",
+      "original_path": "WDP/lab3/3.6.docx",
+      "sha256": "3cd8d6926b502e7d45d4fedecaa0ac240b966967fd64e0860d6bfd92689f94d5",
+      "bytes": 430658,
+      "disposition": "archived_original",
+      "new_path": "coursework/archive/1-Rok/WDP/lab3/3.6.docx",
+      "flags": []
+    },
+    {
+      "branch": "1-Rok",
+      "original_path": "WDP/lab3/3.6.txt",
+      "sha256": "490fa49bd3fda6c805898fa52506c6b651d2e6dd97b3f7c0934dd0ff7bd25f12",
+      "bytes": 663,
+      "disposition": "archived_original",
+      "new_path": "coursework/archive/1-Rok/WDP/lab3/3.6.txt",
+      "flags": []
+    },
+    {
+      "branch": "1-Rok",
+      "original_path": "WDP/lab3/3.7.docx",
+      "sha256": "2ae138fffdfdb7ee749b4ed6d7e3c76515ec22f7e7c8efef2bdc4cd234d3151b",
+      "bytes": 544679,
+      "disposition": "archived_original",
+      "new_path": "coursework/archive/1-Rok/WDP/lab3/3.7.docx",
+      "flags": []
+    },
+    {
+      "branch": "1-Rok",
+      "original_path": "WDP/lab3/3.7.txt",
+      "sha256": "66c67a32bfae546b7511c90bcaabc851e7bc05ab281acccea75955e87f67d09c",
+      "bytes": 1081,
+      "disposition": "archived_original",
+      "new_path": "coursework/archive/1-Rok/WDP/lab3/3.7.txt",
+      "flags": []
+    },
+    {
+      "branch": "1-Rok",
+      "original_path": "WDP/lab4/4.1.docx",
+      "sha256": "e04c7cd6b5dc2b43dd2cc05f93cb0241ca25d2dda1cd778fbc78c35427984608",
+      "bytes": 619039,
+      "disposition": "archived_original",
+      "new_path": "coursework/archive/1-Rok/WDP/lab4/4.1.docx",
+      "flags": []
+    },
+    {
+      "branch": "1-Rok",
+      "original_path": "WDP/lab4/4.1.txt",
+      "sha256": "bd05646860b68cb08fc26cdd63dc611fd3a712bb9870b89fc65e8013c5b9a3c7",
+      "bytes": 2858,
+      "disposition": "archived_original",
+      "new_path": "coursework/archive/1-Rok/WDP/lab4/4.1.txt",
+      "flags": []
+    },
+    {
+      "branch": "1-Rok",
+      "original_path": "WDP/lab5/5.1.docx",
+      "sha256": "0f57c8ff907cc13c4687948b43970150ec1f47efd00bca9bb9c13bc6407b4fc8",
+      "bytes": 634596,
+      "disposition": "archived_original",
+      "new_path": "coursework/archive/1-Rok/WDP/lab5/5.1.docx",
+      "flags": []
+    },
+    {
+      "branch": "1-Rok",
+      "original_path": "WDP/lab5/5.1.txt",
+      "sha256": "777eb05db810327655315283f989e21867404a86270250bf9a3b498feba4ae11",
+      "bytes": 2601,
+      "disposition": "archived_original",
+      "new_path": "coursework/archive/1-Rok/WDP/lab5/5.1.txt",
+      "flags": []
+    },
+    {
+      "branch": "1-Rok",
+      "original_path": "WDP/lab5/5.2.docx",
+      "sha256": "ddb1861f7e037393ee862b181f044d2d85f2a328c4f32932712e6426f7903ef9",
+      "bytes": 658453,
+      "disposition": "archived_original",
+      "new_path": "coursework/archive/1-Rok/WDP/lab5/5.2.docx",
+      "flags": []
+    },
+    {
+      "branch": "1-Rok",
+      "original_path": "WDP/lab5/5.2.txt",
+      "sha256": "3eb5fe1797d8ccec0f80ebfa60853258d077058a75e035ab62b265f9b0926dcb",
+      "bytes": 2361,
+      "disposition": "archived_original",
+      "new_path": "coursework/archive/1-Rok/WDP/lab5/5.2.txt",
+      "flags": []
+    },
+    {
+      "branch": "1-Rok",
+      "original_path": "WDP/lab6/6.1.docx",
+      "sha256": "cc440a98c7bf89c0c71a26813caca518b4d8bcbea77c92ca2d06a02b031706a9",
+      "bytes": 644021,
+      "disposition": "archived_original",
+      "new_path": "coursework/archive/1-Rok/WDP/lab6/6.1.docx",
+      "flags": []
+    },
+    {
+      "branch": "1-Rok",
+      "original_path": "WDP/lab6/6.1.txt",
+      "sha256": "53367602e5e96b286bc7703d5a4ffa6bd8b9f40df43d8e5914a1f7261cd859ec",
+      "bytes": 3267,
+      "disposition": "archived_original",
+      "new_path": "coursework/archive/1-Rok/WDP/lab6/6.1.txt",
+      "flags": []
+    },
+    {
+      "branch": "1-Rok",
+      "original_path": "WDP/lab7/7.1.docx",
+      "sha256": "cee51a980ba554572d79f199c30bcec03c70a69e9cc62666b8669631347a36c4",
+      "bytes": 595244,
+      "disposition": "archived_original",
+      "new_path": "coursework/archive/1-Rok/WDP/lab7/7.1.docx",
+      "flags": []
+    },
+    {
+      "branch": "1-Rok",
+      "original_path": "WDP/lab7/7.1.txt",
+      "sha256": "a6abfdbc70677eaeb6c1989d83f76eb232001aa12f1ef49d9a646bcaa1643d27",
+      "bytes": 1536,
+      "disposition": "archived_original",
+      "new_path": "coursework/archive/1-Rok/WDP/lab7/7.1.txt",
+      "flags": []
+    },
+    {
+      "branch": "1-Rok",
+      "original_path": "WDP/lab7/7.2.docx",
+      "sha256": "d876ce05625f46d9cb50c21edec8cd7bd54228ba45ada4782c54a32740faf797",
+      "bytes": 596623,
+      "disposition": "archived_original",
+      "new_path": "coursework/archive/1-Rok/WDP/lab7/7.2.docx",
+      "flags": []
+    },
+    {
+      "branch": "1-Rok",
+      "original_path": "WDP/lab7/7.2.txt",
+      "sha256": "725cf2d53a6167364688d2ebc4a0e82005978ecca2b2b33ec23d5e5aca0fcbc7",
+      "bytes": 1582,
+      "disposition": "archived_original",
+      "new_path": "coursework/archive/1-Rok/WDP/lab7/7.2.txt",
+      "flags": []
+    },
+    {
+      "branch": "1-Rok",
+      "original_path": "WDP/lab7/7.3.docx",
+      "sha256": "a609269b4c8ee9156270812e6cfa0b83a37b9c824826e3ab56455ee25c97adf9",
+      "bytes": 594383,
+      "disposition": "archived_original",
+      "new_path": "coursework/archive/1-Rok/WDP/lab7/7.3.docx",
+      "flags": []
+    },
+    {
+      "branch": "1-Rok",
+      "original_path": "WDP/lab7/7.3.txt",
+      "sha256": "1121b30fc2935d4af4b7dc809bd6bbce0aaffe78a615ffc5a2d8f399c8e99cb8",
+      "bytes": 1521,
+      "disposition": "archived_original",
+      "new_path": "coursework/archive/1-Rok/WDP/lab7/7.3.txt",
+      "flags": []
+    },
+    {
+      "branch": "1-Rok",
+      "original_path": "WDP/lab8/8.1.docx",
+      "sha256": "c23cdb3f94af41c1497fc61dd5c383c5ccdc599c313fd5f9363ed4f91e38dab5",
+      "bytes": 503876,
+      "disposition": "archived_original",
+      "new_path": "coursework/archive/1-Rok/WDP/lab8/8.1.docx",
+      "flags": []
+    },
+    {
+      "branch": "1-Rok",
+      "original_path": "WDP/lab8/8.1.txt",
+      "sha256": "f5fac91be0fb4b4d39e931bdb1728df8b10a86a3692e6bc85df0de864b6cee76",
+      "bytes": 1158,
+      "disposition": "archived_original",
+      "new_path": "coursework/archive/1-Rok/WDP/lab8/8.1.txt",
+      "flags": []
+    },
+    {
+      "branch": "1-Rok",
+      "original_path": "WDP/lab8/8.2.docx",
+      "sha256": "dfff41ba89a7863efb49b712615d167c295385caed1437b7646406b34777e8bb",
+      "bytes": 534986,
+      "disposition": "archived_original",
+      "new_path": "coursework/archive/1-Rok/WDP/lab8/8.2.docx",
+      "flags": []
+    },
+    {
+      "branch": "1-Rok",
+      "original_path": "WDP/lab8/8.2.txt",
+      "sha256": "e723507a66a978204cb1b86e8f700425d396db7eb526e911dde59b0d1ac9af13",
+      "bytes": 2845,
+      "disposition": "archived_original",
+      "new_path": "coursework/archive/1-Rok/WDP/lab8/8.2.txt",
+      "flags": []
+    },
+    {
+      "branch": "1-Rok",
+      "original_path": "WDP/lab8/8.3.docx",
+      "sha256": "fae8855ef8a3669b573da20a3668fbaf334ce2dd0fe8e629a2f3f4152122be76",
+      "bytes": 503377,
+      "disposition": "archived_original",
+      "new_path": "coursework/archive/1-Rok/WDP/lab8/8.3.docx",
+      "flags": []
+    },
+    {
+      "branch": "1-Rok",
+      "original_path": "WDP/lab8/8.3.txt",
+      "sha256": "da37feea6319395d1b0f491c89c64b3e1a24673fd8db16e291ee8a7cdb96fe0e",
+      "bytes": 3050,
+      "disposition": "archived_original",
+      "new_path": "coursework/archive/1-Rok/WDP/lab8/8.3.txt",
+      "flags": []
+    },
+    {
+      "branch": "1-Rok",
+      "original_path": "WDP/lab8/8.4.docx",
+      "sha256": "cbe23ef092a4f5abd739404d001517b9448f2d2586c8049ee9a8554877c14625",
+      "bytes": 657950,
+      "disposition": "archived_original",
+      "new_path": "coursework/archive/1-Rok/WDP/lab8/8.4.docx",
+      "flags": []
+    },
+    {
+      "branch": "1-Rok",
+      "original_path": "WDP/lab8/8.4.txt",
+      "sha256": "56e5bac5231144d60816495fa1fc28361e0749c35855aa18e231fe5d0372eb16",
+      "bytes": 7368,
+      "disposition": "archived_original",
+      "new_path": "coursework/archive/1-Rok/WDP/lab8/8.4.txt",
+      "flags": []
+    },
+    {
+      "branch": "1-Rok",
+      "original_path": "WDP/lab8/8.5.docx",
+      "sha256": "e770ccb42c2af1f1a56867bdaf993c91deeccd26f256723efee5119e300912aa",
+      "bytes": 544419,
+      "disposition": "archived_original",
+      "new_path": "coursework/archive/1-Rok/WDP/lab8/8.5.docx",
+      "flags": []
+    },
+    {
+      "branch": "1-Rok",
+      "original_path": "WDP/lab8/8.5.txt",
+      "sha256": "7518994566b772e705e4ed0a1b78194686589b4ebf943dcf620f138c94a96570",
+      "bytes": 863,
+      "disposition": "archived_original",
+      "new_path": "coursework/archive/1-Rok/WDP/lab8/8.5.txt",
+      "flags": []
+    },
+    {
+      "branch": "1-Rok",
+      "original_path": "WDP/lab9/9.1.docx",
+      "sha256": "c4d0968654627e5dd0c083cb2283aac8b0fc88896af5a997c9eff20655c46379",
+      "bytes": 505452,
+      "disposition": "archived_original",
+      "new_path": "coursework/archive/1-Rok/WDP/lab9/9.1.docx",
+      "flags": []
+    },
+    {
+      "branch": "1-Rok",
+      "original_path": "WDP/lab9/9.1.txt",
+      "sha256": "4a36dc277c8c5ee30aa4202e6df3f14876c043de77f7fb031473095f0c304d4a",
+      "bytes": 1159,
+      "disposition": "archived_original",
+      "new_path": "coursework/archive/1-Rok/WDP/lab9/9.1.txt",
+      "flags": []
+    },
+    {
+      "branch": "1-Rok",
+      "original_path": "WDP/lab9/9.2.docx",
+      "sha256": "3b854323beac8e7e06a5d849c0cc27be60914df32283f37073d624e85a23896c",
+      "bytes": 555095,
+      "disposition": "archived_original",
+      "new_path": "coursework/archive/1-Rok/WDP/lab9/9.2.docx",
+      "flags": []
+    },
+    {
+      "branch": "1-Rok",
+      "original_path": "WDP/lab9/9.2.txt",
+      "sha256": "5619f722b05771e6bc7c82a47ad327c084f813f5de409dfcd887f456adfef9e3",
+      "bytes": 2370,
+      "disposition": "archived_original",
+      "new_path": "coursework/archive/1-Rok/WDP/lab9/9.2.txt",
+      "flags": []
+    },
+    {
+      "branch": "1-Rok",
+      "original_path": "WDP/lab9/9.3.docx",
+      "sha256": "90dfebec3bf084427120d31c3355126289602d3f8f5c52a61c210a91f5e767e8",
+      "bytes": 572897,
+      "disposition": "archived_original",
+      "new_path": "coursework/archive/1-Rok/WDP/lab9/9.3.docx",
+      "flags": []
+    },
+    {
+      "branch": "1-Rok",
+      "original_path": "WDP/lab9/9.3.txt",
+      "sha256": "0bf854a241cf098614f78ac39619c1b0cd8bfc637c4f5a0aea87a3d20f17c62f",
+      "bytes": 3777,
+      "disposition": "archived_original",
+      "new_path": "coursework/archive/1-Rok/WDP/lab9/9.3.txt",
+      "flags": []
+    },
+    {
+      "branch": "1-Rok",
+      "original_path": "WDP/lab9/9.4.docx",
+      "sha256": "4728e41cd3e2cd1f370396c3a674a861c4c4eca1ef12343ba14aedefc2c610a4",
+      "bytes": 600887,
+      "disposition": "archived_original",
+      "new_path": "coursework/archive/1-Rok/WDP/lab9/9.4.docx",
+      "flags": []
+    },
+    {
+      "branch": "1-Rok",
+      "original_path": "WDP/lab9/9.4.txt",
+      "sha256": "5726b226f1d38e0f1c99e4e4916ab5dbd0f003b72c9c3bbdf0cf3daaa1faadfd",
+      "bytes": 8647,
+      "disposition": "archived_original",
+      "new_path": "coursework/archive/1-Rok/WDP/lab9/9.4.txt",
+      "flags": []
+    },
+    {
+      "branch": "1-Rok",
+      "original_path": "WDP/lab9/9.5.docx",
+      "sha256": "ed4730329f19376aa98e2f086cb5ead986a7d07d1526fb5f8dbc3ff023ec334e",
+      "bytes": 484316,
+      "disposition": "archived_original",
+      "new_path": "coursework/archive/1-Rok/WDP/lab9/9.5.docx",
+      "flags": []
+    },
+    {
+      "branch": "1-Rok",
+      "original_path": "WDP/lab9/9.5.txt",
+      "sha256": "822c167fbb572c48a38bbfdfd20afe0283a4af02f138b464364ddf79bc8b7a7b",
+      "bytes": 801,
+      "disposition": "archived_original",
+      "new_path": "coursework/archive/1-Rok/WDP/lab9/9.5.txt",
+      "flags": []
+    },
+    {
+      "branch": "1-Rok",
+      "original_path": "WDP/zaliczenie.txt",
+      "sha256": "187033ff208e6535326caf08f02d8997a2879ad57af3543697f4ac9328f64c85",
+      "bytes": 3611,
+      "disposition": "archived_original",
+      "new_path": "coursework/archive/1-Rok/WDP/zaliczenie.txt",
+      "flags": []
+    },
+    {
+      "branch": "2-Rok",
+      "original_path": "ALS.zip",
+      "sha256": "4231a602970168331663fde834969cc96e3d9582bdbea0e417569e8556b7710a",
+      "bytes": 5450856,
+      "disposition": "archived_original",
+      "new_path": "coursework/archive/2-Rok/ALS/ALS.zip",
+      "flags": []
+    },
+    {
+      "branch": "2-Rok",
+      "original_path": "AOK/LabSZK.zip",
+      "sha256": "fb896a571f67088ef37b2bbd0b9703f3cbf581cfd4b10dbafe6f9fb081b9ca02",
+      "bytes": 4167622,
+      "disposition": "archived_original",
+      "new_path": "coursework/archive/2-Rok/AOK/LabSZK.zip",
+      "flags": []
+    },
+    {
+      "branch": "2-Rok",
+      "original_path": "AOK/WINDLX.zip",
+      "sha256": "a24ddb0b3b96f91b5fb3bc7908241d85ebf6e6321efadadee32eedc8896fcb8a",
+      "bytes": 3083242,
+      "disposition": "archived_original",
+      "new_path": "coursework/archive/2-Rok/AOK/WINDLX.zip",
+      "flags": []
+    },
+    {
+      "branch": "2-Rok",
+      "original_path": "BD.zip",
+      "sha256": "142dd9f772dec6427f5f24bfa2f5ef6d3fb6055a291e5a309bf65a6e20f95fbd",
+      "bytes": 1543632,
+      "disposition": "archived_original",
+      "new_path": "coursework/archive/2-Rok/BD/BD.zip",
+      "flags": []
+    },
+    {
+      "branch": "2-Rok",
+      "original_path": "FizSprawki.zip",
+      "sha256": "76644276bcfb11898becb6a47ac583e8c198cd97fae9dbe77db0b44a9e4301e3",
+      "bytes": 16513859,
+      "disposition": "archived_original",
+      "new_path": "coursework/archive/2-Rok/FizSprawki/FizSprawki.zip",
+      "flags": []
+    },
+    {
+      "branch": "2-Rok",
+      "original_path": "IK.zip",
+      "sha256": "f08b9dd04ae6eb2670cf70eca814ef9c2779cb3846857a6e64b39b37d92f1c43",
+      "bytes": 4102257,
+      "disposition": "archived_original",
+      "new_path": "coursework/archive/2-Rok/IK/IK.zip",
+      "flags": []
+    },
+    {
+      "branch": "2-Rok",
+      "original_path": "IO/projekt IO.docx",
+      "sha256": "d4246c2f20fdac6e289bd030fd13912084ab110738eec763668ef72dde3bee27",
+      "bytes": 1133738,
+      "disposition": "archived_original",
+      "new_path": "coursework/archive/2-Rok/IO/projekt IO.docx",
+      "flags": []
+    },
+    {
+      "branch": "2-Rok",
+      "original_path": "MM/Andrii Godlevskyi zadanie domowe v.3.docx",
+      "sha256": "919f9318098cfdcb1d08d4a9a9a8b0767ac766af7a7093b517714e00cde86831",
+      "bytes": 77405,
+      "disposition": "archived_original",
+      "new_path": "coursework/archive/2-Rok/MM/Andrii Godlevskyi zadanie domowe v.3.docx",
+      "flags": []
+    },
+    {
+      "branch": "2-Rok",
+      "original_path": "MM/Andrii Godlevskyi zadanie domowe.docx",
+      "sha256": "1b85afcc277d42733fa38c66f29cbc5fb80bf9949ff70bbd3d4fc18ffecd90c7",
+      "bytes": 77265,
+      "disposition": "archived_original",
+      "new_path": "coursework/archive/2-Rok/MM/Andrii Godlevskyi zadanie domowe.docx",
+      "flags": []
+    },
+    {
+      "branch": "2-Rok",
+      "original_path": "PK/GODLEVSKYI.txt",
+      "sha256": "c0439d01ee6290574c0c446d332a11b277871b7111d0f3bec2c1b552cce86883",
+      "bytes": 13,
+      "disposition": "archived_original",
+      "new_path": "coursework/archive/2-Rok/PK/GODLEVSKYI.txt",
+      "flags": []
+    },
+    {
+      "branch": "2-Rok",
+      "original_path": "PK/GODLEVSKYI_LAB1.txt",
+      "sha256": "06ac6cf9d8d692ddab18b99c4550e0b52b19ad68b144255c6b0311475eb5b392",
+      "bytes": 2685,
+      "disposition": "archived_original",
+      "new_path": "coursework/archive/2-Rok/PK/GODLEVSKYI_LAB1.txt",
+      "flags": []
+    },
+    {
+      "branch": "2-Rok",
+      "original_path": "PK/GODLEVSKYI_LAB2.txt",
+      "sha256": "50a96ca3913ff18c49ed44c2ea57d616ff445799166ebb02b98942c20f961f92",
+      "bytes": 2687,
+      "disposition": "archived_original",
+      "new_path": "coursework/archive/2-Rok/PK/GODLEVSKYI_LAB2.txt",
+      "flags": []
+    },
+    {
+      "branch": "2-Rok",
+      "original_path": "PK/GODLEVSKYI_LAB3.txt",
+      "sha256": "9cf6e9baf68c63f620eb3764cf605c51d30e13780c9caed158b26fbf3d78ed7b",
+      "bytes": 1860,
+      "disposition": "archived_original",
+      "new_path": "coursework/archive/2-Rok/PK/GODLEVSKYI_LAB3.txt",
+      "flags": []
+    },
+    {
+      "branch": "2-Rok",
+      "original_path": "PK/GODLEVSKYI_LAB4.txt",
+      "sha256": "9ab5f16ffbbd19862aa8cf540a8cceda3eeb19154bb4e1762e31a5718c91e86b",
+      "bytes": 3556,
+      "disposition": "archived_original",
+      "new_path": "coursework/archive/2-Rok/PK/GODLEVSKYI_LAB4.txt",
+      "flags": []
+    },
+    {
+      "branch": "2-Rok",
+      "original_path": "PK/GODLEVSKYI_LAB5.txt",
+      "sha256": "10d1eeb0177b8b3c9383214bb00d2ec3f777323c0b366f56409b16d913225583",
+      "bytes": 2436,
+      "disposition": "archived_original",
+      "new_path": "coursework/archive/2-Rok/PK/GODLEVSKYI_LAB5.txt",
+      "flags": []
+    },
+    {
+      "branch": "2-Rok",
+      "original_path": "PK/GODLEVSKYI_LAB6.txt",
+      "sha256": "c8b165c9b9fa0ad034930065e813317a69cf1345070fb0733514a2abc642cc8f",
+      "bytes": 5150,
+      "disposition": "archived_original",
+      "new_path": "coursework/archive/2-Rok/PK/GODLEVSKYI_LAB6.txt",
+      "flags": []
+    },
+    {
+      "branch": "2-Rok",
+      "original_path": "PK/Notatka PK.pdf",
+      "sha256": "3bb1a5948ddb2aa05c41575b75aaeecb8548449eaace4b18105d3ad0682fe1b5",
+      "bytes": 12706720,
+      "disposition": "archived_original",
+      "new_path": "coursework/archive/2-Rok/PK/Notatka PK.pdf",
+      "flags": []
+    },
+    {
+      "branch": "2-Rok",
+      "original_path": "README.md",
+      "sha256": "9bdc756f48757605937d4b222cd64c2378a0ac46d963f71b00c2916842ae69dd",
+      "bytes": 155,
+      "disposition": "archived_original",
+      "new_path": "coursework/archive/2-Rok/_metadata/README.md",
+      "flags": []
+    },
+    {
+      "branch": "2-Rok",
+      "original_path": "SCK/GIGA_BAZUNIA_NOWAKA.pdf",
+      "sha256": "84661d5f3ce7a466680bd9922180860b453a25a052751fee7b61774a25286c8c",
+      "bytes": 360975,
+      "disposition": "archived_original",
+      "new_path": "coursework/archive/2-Rok/SCK/GIGA_BAZUNIA_NOWAKA.pdf",
+      "flags": [
+        "IP_requires_context"
+      ]
+    },
+    {
+      "branch": "2-Rok",
+      "original_path": "SCK/SK.pdf",
+      "sha256": "d5f2efdc36a07aa4385640bd1bc83afe06bde82b7be306caf12cba09140fc5d4",
+      "bytes": 83111,
+      "disposition": "archived_original",
+      "new_path": "coursework/archive/2-Rok/SCK/SK.pdf",
+      "flags": [
+        "IP_requires_context"
+      ]
+    },
+    {
+      "branch": "2-Rok",
+      "original_path": "SO_projekt.txt",
+      "sha256": "3fc7f07e1e1142a6e3f4084ffa6c4392239374782b0872ee83dca372d5bd53f0",
+      "bytes": 6738,
+      "disposition": "archived_original",
+      "new_path": "coursework/archive/2-Rok/SO/SO_projekt.txt",
+      "flags": []
+    },
+    {
+      "branch": "2-Rok",
+      "original_path": "TIK/Sprawozdanie_Godlevskyi.pdf",
+      "sha256": "aea3e0d51447301c2ec68d07d8b9b7f2ae8270f5cc3389ef1e74534a46bfaffe",
+      "bytes": 788183,
+      "disposition": "archived_original",
+      "new_path": "coursework/archive/2-Rok/TIK/Sprawozdanie_Godlevskyi.pdf",
+      "flags": []
+    },
+    {
+      "branch": "2-Rok",
+      "original_path": "WEK/WEK.docx",
+      "sha256": "b8ef72026f53f675d30e0487ad863d3d9d24ff18bd99d3e6187e5a900e76cb6e",
+      "bytes": 275236,
+      "disposition": "archived_original",
+      "new_path": "coursework/archive/2-Rok/WEK/WEK.docx",
+      "flags": []
+    },
+    {
+      "branch": "2-Rok",
+      "original_path": "ZKST/BazuniaZKST.pdf",
+      "sha256": "1930f3fb6d3d7d670c97acb7e7ec8c96b6e4eede6d91048a31beef12c6aefc63",
+      "bytes": 4586147,
+      "disposition": "archived_original",
+      "new_path": "coursework/archive/2-Rok/ZKST/BazuniaZKST.pdf",
+      "flags": []
+    },
+    {
+      "branch": "2-Rok",
+      "original_path": "ZKST/zkst_notatka.pdf",
+      "sha256": "b3007ceff9549753dbdf66fa0f8fc9ad8dfced0a11f4bd88546ba1bd2543c403",
+      "bytes": 1054484,
+      "disposition": "archived_original",
+      "new_path": "coursework/archive/2-Rok/ZKST/zkst_notatka.pdf",
+      "flags": [
+        "email"
+      ]
+    }
+  ]
+}

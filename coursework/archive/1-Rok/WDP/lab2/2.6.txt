@@ -1,0 +1,51 @@
+#include <stdio.h>
+#include <string.h>
+
+#define interesowania 256
+//robienie struktur
+struct Person {
+    char imie[50];
+    char nazwisko[50];
+    long pesel;
+    char interests[interesowania];
+};
+
+struct Person loadPersonData() {
+    struct Person p;
+
+    printf("Wpisz imie: ");
+    scanf("%s", p.imie);
+
+    printf("Wpisz nazwisko: ");
+    scanf("%s", p.nazwisko);
+
+    printf("Wpisz Pesel: ");
+    scanf("%ld", &p.pesel);
+
+    printf("Wpisz interesowania (up to 256 characters): ");
+    getchar();
+    fgets(p.interests, sizeof(p.interests), stdin);
+    p.interests[strcspn(p.interests, "\n")] = '\0'; 
+    return p;
+}
+//wypisanie struktury
+void printPersonData(struct Person p) {
+    printf("Name: %s\n", p.imie);
+    printf("Surimie: %s\n", p.nazwisko);
+    printf("PESEL: %ld\n", p.pesel);
+    printf("Zainteresowania: %s\n", p.interests);
+}
+
+int main() {
+    //deklaracja struktury
+    struct Person a;
+
+    a = loadPersonData();
+
+    //wypisanie wyniku
+
+    printf("\nWpisane dane:\n");
+    printPersonData(a);
+
+    return 0;
+}

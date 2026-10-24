@@ -1,0 +1,128 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+typedef struct {
+    int id;
+    int dzien;
+    int miesiac;
+    int rok;
+    char przedmiot[50];
+    float ocena;
+} OCENA;
+
+void Zapisz_Ocene() {
+    OCENA nowaOcena;
+    FILE *plik = fopen("oceny.dat", "a");
+    if (!plik) {
+        perror("Nie mozna otworzyc pliku do zapisu");
+        return;
+    }
+
+    printf("\nPodaj ID ucznia: ");
+    if (scanf("%d", &nowaOcena.id) != 1) {
+        printf("Blad wprowadzania identyfikatora\n");
+        fclose(plik);
+        return;
+    }
+    printf("Podaj date wystawienia oceny (dzien miesiąc rok): ");
+    if (scanf("%d %d %d", &nowaOcena.dzien, &nowaOcena.miesiac, &nowaOcena.rok) != 3) {
+        printf("Blad wprowadzania daty\n");
+        fclose(plik);
+        return;
+    }
+    printf("Podaj nazwe przedmiotu: ");
+    if (scanf("%s", nowaOcena.przedmiot) != 1) {
+        printf("Blad wprowadzania nazwy przedmiotu\n");
+        fclose(plik);
+        return;
+    }
+    printf("Podaj wartosc oceny: ");
+    if (scanf("%f", &nowaOcena.ocena) != 1) {
+        printf("Blad wprowadzania wartosci oceny\n");
+        fclose(plik);
+        return;
+    }
+
+    fprintf(plik, "%d %d %d %d %s %.2f\n", nowaOcena.id, nowaOcena.dzien, nowaOcena.miesiac, nowaOcena.rok, nowaOcena.przedmiot, nowaOcena.ocena);
+    fclose(plik);
+
+    printf("Ocena zostala zapisana\n");
+}
+
+void Odczytaj_Oceny() {
+    int id;
+    printf("\nPodaj ID ucznia: ");
+    if (scanf("%d", &id) != 1) {
+        printf("Blad wprowadzania ID\n");
+        return;
+    }
+
+    FILE *plik = fopen("oceny.dat", "r");
+    if (!plik) {
+        perror("Nie mozna otworzyc pliku do odczytu");
+        return;
+    }
+
+    OCENA *oceny = NULL;
+    int liczbaOcen = 0;
+    OCENA tempOcena;
+    while (fscanf(plik, "%d %d %d %d %49s %f", &tempOcena.id, &tempOcena.dzien, &tempOcena.miesiac, &tempOcena.rok, tempOcena.przedmiot, &tempOcena.ocena) == 6) {
+        if (tempOcena.id == id) {
+            oceny = realloc(oceny, sizeof(OCENA) * (liczbaOcen + 1));
+            if (!oceny) {
+                perror("Blad alokacji pamieci");
+                fclose(plik);
+                return;
+            }
+            oceny[liczbaOcen++] = tempOcena;
+        }
+    }
+    fclose(plik);
+
+    if (liczbaOcen == 0) {
+        printf("Brak ocen dla ucznia o ID %d.\n", id);
+        return;
+    }
+
+    float sumaOcen = 0;
+    printf("\nOceny ucznia z ID %d:\n", id);
+    for (int i = 0; i < liczbaOcen; i++) {
+        printf("Data: %02d-%02d-%d, Przedmiot: %s, Ocena: %.2f\n", oceny[i].dzien, oceny[i].miesiac, oceny[i].rok, oceny[i].przedmiot, oceny[i].ocena);
+        sumaOcen += oceny[i].ocena;
+    }
+    printf("Srednia ocen: %.2f\n", sumaOcen / liczbaOcen);
+
+    free(oceny);
+}
+
+int main() {
+    int wybor;
+    do {
+        printf("\n1. Zapisz ocene\n");
+        printf("2. Odczytaj oceny\n");
+        printf("3. Zakoncz\n");
+        printf("Wybierz opcje: ");
+        if (scanf("%d", &wybor) != 1) {
+            printf("Blad wprowadzenia wyboru\n");
+            while (getchar() != '\n'); 
+            continue;
+        }
+
+        switch (wybor) {
+            case 1:
+                Zapisz_Ocene();
+                break;
+            case 2:
+                Odczytaj_Oceny();
+                break;
+            case 3:
+                printf("Zakonczono dzialanie aplikacji\n");
+                break;
+            default:
+                printf("Niepoprawny wybor,sprobuj ponownie\n");
+        }
+    } while (wybor != 3);
+
+    return 0;
+}
