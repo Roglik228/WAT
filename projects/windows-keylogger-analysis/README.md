@@ -6,11 +6,11 @@ A defensive case study of the ONI keylogger. Despite hardware-diagnostics brandi
 
 ![Source-observed behavior](assets/behavior.svg)
 
-## Technologies and review method
+## Technologies and scope
 
-C++, WinAPI, registry/file I/O and WinINet. The original project also contains a Python decoder. Review was static: no executable was launched, no collection endpoint contacted and no credentials tested.
+C++, WinAPI, registry/file I/O and WinINet. This case study covers the source code and its Windows artifacts using static analysis.
 
-The [source reference](reference/main.cpp.disabled.txt) is non-executable text with the collection host, form path and field identifier removed. This project contains the static reference, a behavior diagram and defensive analysis notes.
+Contents: a [static source reference](reference/main.cpp.disabled.txt), a behavior diagram and [analysis notes](ANALYSIS.md). The reference has a text extension and placeholder collection identifiers.
 
 ## Source observations
 
@@ -25,8 +25,8 @@ The [source reference](reference/main.cpp.disabled.txt) is non-executable text w
 
 ## Defensive review workflow
 
-Read the source reference and [analysis notes](ANALYSIS.md). For a suspected real event, preserve evidence, isolate through the organization's response process, establish scope and assess credential exposure. This repository does not automate response.
+Read the source reference and [analysis notes](ANALYSIS.md). For a suspected real event, preserve evidence, isolate through the organization's response process, establish scope and assess credential exposure. 
 
 ## Results and limits
 
-Result: a source-backed behavior map and proposed investigation workflow. Persistence success, data delivery, antivirus evasion, impact and binary/source equivalence were not independently tested. No validated SIEM rules, incident metrics or EDR results are claimed. Academic software development is not evidence of operating an APT.
+The case study maps source behavior to host artifacts and investigation questions. Runtime behavior, binary/source equivalence and detection rules have not been validated.

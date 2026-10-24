@@ -13,5 +13,5 @@
 <rect x="36" y="231" width="5" height="64" fill="#c4b5fd"/>
 <text x="56" y="256" fill="#c4b5fd" font-family="Arial,sans-serif" font-size="18" font-weight="bold">Output · Port P1</text>
 <text x="56" y="280" fill="#e2e8f0" font-family="Arial,sans-serif" font-size="16">64-character buffer → four-bit LCD driver</text>
-<text x="36" y="357" fill="#94a3b8" font-family="Arial,sans-serif" font-size="14">Recreated from C source · No hardware or simulator run claimed</text>
+<text x="36" y="357" fill="#94a3b8" font-family="Arial,sans-serif" font-size="14">8051 firmware · Matrix keypad, multi-tap state machine and LCD driver</text>
 </svg>

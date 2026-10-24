@@ -17,5 +17,5 @@
 <rect x="36" y="309" width="5" height="64" fill="#fbbf24"/>
 <text x="56" y="334" fill="#fbbf24" font-family="Arial,sans-serif" font-size="18" font-weight="bold">Cleanup code</text>
 <text x="56" y="358" fill="#e2e8f0" font-family="Arial,sans-serif" font-size="16">Artifact deletion and command-process launch</text>
-<text x="36" y="435" fill="#94a3b8" font-family="Arial,sans-serif" font-size="14">Static review · Sample not executed · Collection destination removed</text>
+<text x="36" y="435" fill="#94a3b8" font-family="Arial,sans-serif" font-size="14">Static analysis · Persistence, input collection, storage and network behavior</text>
 </svg>

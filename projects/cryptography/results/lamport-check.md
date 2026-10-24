@@ -1,3 +1,3 @@
 # Lamport check
 
-Executed the supplied default three-login demonstration. Three hash-chain verifications succeeded. User selection is random. This does not validate production security or chain exhaustion.
+Default settings: three users, chain length five and three logins. All three hash-chain verifications succeeded. User selection is random. Chain-exhaustion handling is outside this check.

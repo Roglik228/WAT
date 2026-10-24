@@ -13,5 +13,5 @@
 <rect x="36" y="231" width="5" height="64" fill="#c4b5fd"/>
 <text x="56" y="256" fill="#c4b5fd" font-family="Arial,sans-serif" font-size="18" font-weight="bold">VPN lab</text>
 <text x="56" y="280" fill="#e2e8f0" font-family="Arial,sans-serif" font-size="16">Windows OpenVPN client ↔ Ubuntu server · PKI, UFW and NAT</text>
-<text x="36" y="357" fill="#94a3b8" font-family="Arial,sans-serif" font-size="14">Recreated from ZKWI reports · Separate lab exercises · No private keys or real endpoints</text>
+<text x="36" y="357" fill="#94a3b8" font-family="Arial,sans-serif" font-size="14">ZKWI laboratory exercises · Certificate hierarchy, HTTPS and VPN</text>
 </svg>

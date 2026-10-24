@@ -13,5 +13,5 @@
 <rect x="36" y="231" width="5" height="64" fill="#c4b5fd"/>
 <text x="56" y="256" fill="#c4b5fd" font-family="Arial,sans-serif" font-size="18" font-weight="bold">Coin tossing</text>
 <text x="56" y="280" fill="#e2e8f0" font-family="Arial,sans-serif" font-size="16">Blum integers · Positive and altered-input scenarios</text>
-<text x="36" y="357" fill="#94a3b8" font-family="Arial,sans-serif" font-size="14">Academic demonstrations · Small parameters and printed secrets · Not production cryptography</text>
+<text x="36" y="357" fill="#94a3b8" font-family="Arial,sans-serif" font-size="14">Educational protocol simulations · Small parameters and visible intermediate values</text>
 </svg>

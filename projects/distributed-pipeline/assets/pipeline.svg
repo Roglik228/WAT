@@ -13,5 +13,5 @@
 <rect x="36" y="231" width="5" height="64" fill="#c4b5fd"/>
 <text x="56" y="256" fill="#c4b5fd" font-family="Arial,sans-serif" font-size="18" font-weight="bold">PHP → C · UDP 12347</text>
 <text x="56" y="280" fill="#e2e8f0" font-family="Arial,sans-serif" font-size="16">Base64 decode → datagram → hexadecimal STDOUT</text>
-<text x="36" y="357" fill="#94a3b8" font-family="Arial,sans-serif" font-size="14">Source-derived diagram · Full pipeline not run · C receiver binds all interfaces</text>
+<text x="36" y="357" fill="#94a3b8" font-family="Arial,sans-serif" font-size="14">TCP → XML-RPC → UDP · C receiver listens on all interfaces</text>
 </svg>

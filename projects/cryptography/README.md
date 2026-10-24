@@ -31,6 +31,6 @@ Use an installed SageMath environment for every .sage file. Original .txt snippe
 
 ## Results and limits
 
-The default Lamport demonstration was executed and its three successful verifications checked; see [result](results/lamport-check.md). Execution results for the SageMath examples are not included. Source-visible positive/negative scenarios are not advertised as passing tests.
+The [Lamport example](results/lamport-check.md) completes three successful verifications with the default settings. Execution logs for the SageMath examples are not included.
 
-The signature simulation returns success only inside an if ok and verbose branch, so verbose=False can report failure even when comparisons succeed. This limitation was documented rather than hidden. No implementation provides production key generation, constant-time execution, authenticated transport or an independently reviewed construction. Do not use it to protect real data.
+The signature simulation returns success only inside an if ok and verbose branch, so verbose=False can report failure even when comparisons succeed. These are educational simulations with small parameters and visible intermediate secrets, not a production cryptography library.

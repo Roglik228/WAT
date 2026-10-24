@@ -1,4 +1,4 @@
-// STATIC REFERENCE ONLY. Collection identifiers removed. Not a build target.
+// Static analysis reference. Collection identifiers use placeholders.
 #define _WIN32_WINNT 0x0601
 #include <windows.h>
 #include <shlobj.h>

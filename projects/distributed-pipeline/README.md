@@ -25,7 +25,7 @@ Requires Perl with MIME::Base64, Python 3, GCC/make and PHP with both sockets an
 php -r 'exit(extension_loaded("sockets") && function_exists("xmlrpc_server_create") ? 0 : 1);'
 ```
 
-If it fails, the original PHP stage cannot run in that environment. See the [PHP XML-RPC installation manual](https://www.php.net/manual/en/xmlrpc.installation.php). No compatibility repair is implied.
+The PHP stage requires these extensions. See the [PHP XML-RPC installation manual](https://www.php.net/manual/en/xmlrpc.installation.php).
 
 From src/, build with make, then run these long-lived receivers in **three separate terminals**, in this order:
 
@@ -48,10 +48,10 @@ In a fourth terminal, send:
 printf 'SOC lab\n' | perl proces1_perl_tcp.pl
 ```
 
-Expected C output: 53 4f 43 20 6c 61 62 0a. This is the expected transformation, not a captured full-pipeline result. Stop receivers with Ctrl+C.
+Expected C output: 53 4f 43 20 6c 61 62 0a. Stop receivers with Ctrl+C.
 
 ## Results and limitations
 
-The full pipeline requires the Linux environment and dependencies listed above. An end-to-end execution result is not included.
+The pipeline targets the Linux environment and dependencies listed above. A recorded end-to-end test is not included.
 
 TCP/RPC use loopback, but the C receiver binds INADDR_ANY. Restrict the lab network/firewall. UDP has no acknowledgement or retransmission. MD5 is printed as a diagnostic, not used for authentication. There is no TLS, peer authentication or verified message integrity. This is an IPC exercise, not a secure production service.

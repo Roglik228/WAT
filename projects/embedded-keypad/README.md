@@ -8,11 +8,11 @@ Embedded C coursework implements text entry from a 4×3 matrix keypad: multi-tap
 
 ## Technologies and files
 
-8051 / REGX52.H, C, Proteus, GPIO and a four-bit LCD interface. src/main.c contains input/state logic; src/lcd.c drives the display; src/PROJ2.pdsprj holds the circuit project. Files are unchanged copies.
+8051 / REGX52.H, C, Proteus, GPIO and a four-bit LCD interface. src/main.c contains input/state logic; src/lcd.c drives the display; src/PROJ2.pdsprj holds the circuit project.
 
 ## Build and inspect
 
-Open the Proteus project and check its selected MCU and clock. Build both C files with an 8051 compiler providing REGX52.H, then assign the resulting firmware to the simulator. Exact toolchain version, a full compiler project and a prebuilt HEX are not included, so this is not a verified one-click build.
+Open the Proteus project and check its selected MCU and clock. Build both C files with an 8051 compiler providing REGX52.H, then assign the resulting firmware to the simulator. The repository contains the C sources and circuit; the compiler project and prebuilt HEX are not included.
 
 Keypad: P2. LCD control/data: P1. Check the circuit against those assignments before simulation.
 
@@ -25,4 +25,4 @@ Keypad: P2. LCD control/data: P1. Check the circuit against those assignments be
 
 ## Results and limits
 
-The source demonstrates GPIO handling, a state machine and a display driver. No new hardware/simulator test was run. Debounce timing and display geometry need verification against the actual clock/circuit. No security or secure-input capability is claimed.
+The source demonstrates GPIO handling, a state machine and a display driver. Debounce timing and display geometry depend on the MCU clock and circuit. A recorded hardware or simulator test is not included.
