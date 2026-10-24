@@ -1,0 +1,29 @@
+#include <stdio.h>
+//Funkcja sprawdzenia podzielnosci liczb z przedzialu od a do b przez liczbe k
+int ilosc_podzielnych(int *a, int *b, int *k) {
+    int ilosc = 0;
+
+    for (int i = *a; i <= *b; i++) {
+        if (i % *k == 0) {
+            ilosc++;
+        }
+    }
+
+    return ilosc;
+}
+
+int main() {
+  //tworzenie zmiennych
+
+    int a, b, k;
+   //wprowadzenie wartosci zmiennych
+    printf("Wpisz 3 wartosci  (a, b, k): ");
+    scanf("%d %d %d", &a, &b, &k);
+  //wywolanie funkcji sprawdzajacej ilosc liczb podzielnych przez k
+
+    int wynik = ilosc_podzielnych(&a, &b, &k);
+  //wypisanie wyniku
+    printf("Ilosc podzielnyck przez k=%d liczb w przedziale od a=%d do b=%d wynosi: %d\n", k, a, b, wynik);
+
+    return 0;
+}

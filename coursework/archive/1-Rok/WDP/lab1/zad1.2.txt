@@ -1,0 +1,28 @@
+
+#include <stdio.h>
+//Funkcja sprawdzenia rownosci wartosci zmiennych ,ktora zwraca przy rownosc prynajmniej 2 elementow wartosc 1, w przeciwnym wypadku 0
+void sprawdz_rownosc(int *a, int *b, int *c, int *wynik) {
+    if (*a == *b || *b == *c || *a == *c) {
+        *wynik = 1;
+    } else {
+        *wynik = 0;
+    }
+}
+
+int main() {
+   //tworzenie zmiennych
+    int a, b, c, W;
+  //wprowadzenie wartosci zmiennych
+    printf("Wpisz 3 liczby  (a, b, c): ");
+    scanf("%d %d %d", &a, &b, &c);
+  //wywolanie funkcji sprawdzajacej rownosc
+    sprawdz_rownosc(&a, &b, &c, &W);
+  //wypisanie wyniku
+    if (W == 1) {
+        printf("W = 1 == Przynajmniej dwa elementy sa rowne\n");
+    } else {
+        printf("W = 0 == Zadne dwa elementy nie sa rowne\n");
+    }
+
+    return 0;
+}

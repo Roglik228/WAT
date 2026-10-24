@@ -1,0 +1,71 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+//funkcja szyfrowania
+void SCr(int n, char *a, char *b) {
+    int i = 0;
+    while (a[i] != '\0') {
+        if (a[i] >= 'a' && a[i] <= 'z') {
+            b[i] = 'a' + (a[i] - 'a' + n) % 26;
+        } else if (a[i] >= 'A' && a[i] <= 'Z') {
+            b[i] = 'A' + (a[i] - 'A' + n) % 26;
+        } else {
+            b[i] = a[i];
+        }
+        i++;
+    }
+    b[i] = '\0';
+}
+//funkcja deszyfrowania
+void DSCr(int n, char *a, char *b) {
+    int i = 0;
+    while (a[i] != '\0') {
+        if (a[i] >= 'a' && a[i] <= 'z') {
+            b[i] = 'a' + (a[i] - 'a' - n + 26) % 26;
+        } else if (a[i] >= 'A' && a[i] <= 'Z') {
+            b[i] = 'A' + (a[i] - 'A' - n + 26) % 26;
+        } else {
+            b[i] = a[i];
+        }
+        i++;
+    }
+    b[i] = '\0';
+}
+
+int main() {
+    //tworzenie zmiennych
+    int n;
+    char input_text[100], encrypted_text[100], decrypted_text[100];
+
+    //wprowadzenie danych
+    
+    printf("Liczba przesuwania (n): ");
+    scanf("%d", &n);
+
+    printf("Wpisz fraze: ");
+    getchar(); 
+    fgets(input_text, sizeof(input_text), stdin);
+    input_text[strcspn(input_text, "\n")] = '\0'; 
+
+    //wywolanie funkcji
+
+    SCr(n, input_text, encrypted_text);
+    
+    //wypisanie wynikow
+
+    printf("\nKodowanie:\n");
+    printf("n (przesuwanie): %d\n", n);
+    printf("Wpisany tekst: %s\n", input_text);
+    printf("Zaszyfrowane: %s\n", encrypted_text);
+
+    DSCr(n, encrypted_text, decrypted_text);
+    
+    //wypisanie wynikow
+
+    printf("\nCaesar Cipher Decryption:\n");
+    printf("n (Shift Value): %d\n", n);
+    printf("Zaszyfrowane: %s\n", encrypted_text);
+    printf("Deszyfrowane: %s\n", decrypted_text);
+
+    return 0;
+}

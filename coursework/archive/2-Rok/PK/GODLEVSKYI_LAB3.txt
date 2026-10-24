@@ -1,0 +1,59 @@
+# Andrii Godlevskyi WCY23KY1S1
+
+def losuj_pierwsza_2e24() -> int:
+    return int(next_prime(2**24 + randint(0, 1000)))
+
+def generuj_cienie(M: int, k: int, n: int, p: int):
+    F = GF(p); P.<x> = F[]
+    wsp = [F.random_element() for _ in range(k - 1)]
+    f = sum(wsp[i] * x**(k - 1 - i) for i in range(k - 1)) + F(M)
+    xi = sample(range(1, p), n)
+    return [(xj, int(f(F(xj)))) for xj in xi], f
+
+def lagrange(xs, ys, p):
+    F = GF(p); P.<x> = F[]
+    poly = P(0)
+    for j in range(len(xs)):
+        num, den = P(1), F(1)
+        for m in range(len(xs)):
+            if m != j:
+                num *= x - F(xs[m])
+                den *= F(xs[j] - xs[m])
+        poly += F(ys[j]) * num * den.inverse()
+    return poly
+
+def odtworz_tajemnice(cienie, p):
+    xs, ys = zip(*cienie)
+    return int(lagrange(xs, ys, p)(0))
+
+n, k = 10, 5
+p = losuj_pierwsza_2e24()
+M = randint(1, p - 1)               
+cienie, f = generuj_cienie(M, k, n, p)
+
+print("Wartosci poczatkowe: \n")
+print(f"Liczba pierwsza p = {p}\n")
+print("Parametry:\n")
+print(f"k = {k}\n")
+print(f"n = {n}\n")
+print(f"Generowana tajemnica M = {M}\n")
+print("Generowany wielomian f(x) =", f, "\n")
+print("Generowane cienie (xi, li):")
+for i, (x, l) in enumerate(cienie, 1):
+    print(f"{i:2d}. x = {x}, l = {l}")
+
+#losowy wybór cieni
+m = randint(k, n)  
+
+print(f"\nIlosc wybranych cieni do rekonstrukcji wiadomosci: m = {m}\n")
+      
+indeksy = sample(range(n), m)
+wybrane_cienie = [cienie[i] for i in indeksy]
+
+print("Losowo wybrane cienie do rekonstrukcji:",
+      ", ".join(str(i + 1) for i in sorted(indeksy)), "\n")
+print("Wartosci wybranych cieni:")
+for idx in sorted(indeksy):
+    x, l = cienie[idx]
+    print(f"{idx + 1}. x = {x}, l = {l}")
+print("\nOdtworzona tajemnica z wybranych cieni M =", odtworz_tajemnice(wybrane_cienie, p))

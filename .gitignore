@@ -1,0 +1,15 @@
+__pycache__/
+*.pyc
+*.exe
+*.o
+*.obj
+*.res
+*.hex
+*.key
+*.p12
+*.pfx
+*.ovpn
+.env
+.env.*
+mail.txt
+private/

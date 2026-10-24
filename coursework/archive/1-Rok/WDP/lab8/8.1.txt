@@ -1,0 +1,48 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+//funkcja dzialania na pliku
+void genliczb(char *nazwa_pliku, int a, int b, int ilosc) {
+  FILE *plik = fopen(nazwa_pliku, "w");
+  if (plik == NULL) {
+    printf("Błąd: Nie można otworzyć pliku %s.\n", nazwa_pliku);
+    return;
+  }
+  srand(time(NULL)); //generator liczb losowych
+  int licznik = 0;
+  for (int i = 0; i < ilosc; i++) {
+    int liczba = rand() % (b-a+1)+a;
+    fprintf(plik, "%-5d", liczba); 
+    printf("%-5d", liczba);
+    licznik++;
+    // Nowa linia co 10 liczb 
+    if (licznik % 10 == 0) {
+      fprintf(plik, "\n");
+      printf("\n");
+    }
+  }
+  if (licznik % 10 != 0) {
+    fprintf(plik, "\n");
+    printf("\n");
+  }
+  fclose(plik);
+}
+
+int main() {
+  //deklaracja zmiennych
+  char nazwa_pliku[100];
+  int a, b, ilosc;
+  //wpisanie zmiennych
+  printf("Podaj nazwę pliku (*.txt): ");
+  scanf("%s", nazwa_pliku);
+
+  printf("Podaj przedzial losowanych liczb od a do b: ");
+  scanf("%d%d", &a,&b);
+
+  printf("Podaj ilosc liczb: ");
+  scanf("%d", &ilosc);
+  //wypisanie wynikow
+  genliczb(nazwa_pliku, a, b, ilosc);
+
+  return 0;
+}

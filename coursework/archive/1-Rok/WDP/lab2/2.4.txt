@@ -1,0 +1,37 @@
+#include <stdio.h>
+
+int main() {
+	// deklaracja zmiennych
+	char str1[100], str2[100];
+	char *ptr1, *ptr2;
+	int rowne = 1;
+
+	// wpisanie slowa
+	printf("Wpisz pierwszy napis: ");
+	scanf("%s", str1);
+
+	printf("Wpisz drugi napis: ");
+	scanf("%s", str2);
+
+	ptr1 = str1;
+	ptr2 = str2;
+
+	// porownanie slow znak po znaku
+	while (*ptr1 != '\0' || *ptr2 != '\0') {
+		if (*ptr1 != *ptr2) {
+			rowne = 0;
+			break;
+		}
+		ptr1++;
+		ptr2++;
+	}
+
+	// wyświetlenie wyniku
+	if (rowne == 1) {
+		printf("Slowa sa identyczne.\n");
+	} else {
+		printf("Slowa nie sa identyczne.\n");
+	}
+
+	return 0;
+}
