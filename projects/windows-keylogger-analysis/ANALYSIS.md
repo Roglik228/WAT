@@ -19,5 +19,3 @@ Candidate telemetry: process creation, registry changes, file creation and proce
 - Registry/filesystem operations can fail; source capability is not execution evidence.
 - The binary was not run or reverse engineered; equivalence with source is unverified.
 - No detection rule was tested against positive/negative telemetry.
-
-Publication changes affect only the reference file extension, a static-reference header and three collection identifiers. No input collection, persistence, stealth or transmission capability was improved.

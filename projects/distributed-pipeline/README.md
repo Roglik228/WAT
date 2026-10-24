@@ -15,7 +15,7 @@ An academic IPC exercise passes input through four languages and three protocols
 | PHP | proces3_php_udp.php | XML-RPC → Base64 decode → UDP bytes |
 | C | proces4_c_udp_hex.c | Receive UDP → hexadecimal STDOUT |
 
-Sources were extracted unchanged from PPZ_Projekt.zip; the original archive is retained under coursework.
+The src/ directory contains all four processes and a Makefile. The coursework archive also contains PPZ_Projekt.zip.
 
 ## Run in an isolated Linux lab
 
@@ -52,6 +52,6 @@ Expected C output: 53 4f 43 20 6c 61 62 0a. This is the expected transformation,
 
 ## Results and limitations
 
-A Python bridge check against a local XML-RPC stub was attempted, but the environment blocked local socket connections. See [validation](../../docs/VALIDATION.md). The full pipeline was not run because Perl/PHP/GCC are absent here.
+The full pipeline requires the Linux environment and dependencies listed above. An end-to-end execution result is not included.
 
 TCP/RPC use loopback, but the C receiver binds INADDR_ANY. Restrict the lab network/firewall. UDP has no acknowledgement or retransmission. MD5 is printed as a diagnostic, not used for authentication. There is no TLS, peer authentication or verified message integrity. This is an IPC exercise, not a secure production service.

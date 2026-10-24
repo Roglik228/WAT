@@ -24,7 +24,7 @@ To reproduce, use separate lab VMs and fresh keys/certificates. Assign your own 
 
 ## Results and limits
 
-The reports describe HTTP/TLS inspection, CA-chain validation and a connected VPN client. These results were not rerun during preparation. Exact packets, cipher negotiation and current connectivity cannot be independently revalidated without the original capture/environment.
+The reports describe HTTP/TLS inspection, CA-chain validation and a connected VPN client. Results are documented in the linked laboratory reports. Exact packets, cipher negotiation and current connectivity cannot be independently revalidated without the original capture/environment.
 
 The original HTTPS report overinterprets TLS 1.3 ChangeCipherSpec: it can be a compatibility record and does not alone prove key establishment. Handshake messages after ServerHello are encrypted; a certificate decoded from a TLS 1.3 capture requires the appropriate decryption context. Protocol reference: [RFC 8446 section 2](https://www.rfc-editor.org/rfc/rfc8446.html#section-2) and [appendix D.4](https://www.rfc-editor.org/rfc/rfc8446.html#appendix-D.4), relevant to this historical lab.
 

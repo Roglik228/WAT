@@ -10,7 +10,7 @@ A defensive case study of the ONI keylogger. Despite hardware-diagnostics brandi
 
 C++, WinAPI, registry/file I/O and WinINet. The original project also contains a Python decoder. Review was static: no executable was launched, no collection endpoint contacted and no credentials tested.
 
-The [source reference](reference/main.cpp.disabled.txt) is non-executable text with the collection host, form path and field identifier removed. Original ONI source/reports, the runnable EXE and mail.txt are preserved in the private local backup. No operational build or deployment instructions are included.
+The [source reference](reference/main.cpp.disabled.txt) is non-executable text with the collection host, form path and field identifier removed. This project contains the static reference, a behavior diagram and defensive analysis notes.
 
 ## Source observations
 

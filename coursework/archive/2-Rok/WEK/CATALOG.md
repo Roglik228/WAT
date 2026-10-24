@@ -1,5 +1,5 @@
 # 2-Rok / WEK
 
-| Original file | Archive treatment |
-|---|---|
-| [WEK.docx](WEK.docx) | archived_original |
+Available materials:
+
+- [WEK.docx](WEK.docx)

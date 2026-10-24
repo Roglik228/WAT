@@ -1,78 +1,78 @@
 # 1-Rok / WDP
 
-| Original file | Archive treatment |
-|---|---|
-| [1.2.docx](lab1/1.2.docx) | archived_original |
-| [1.3.docx](lab1/1.3.docx) | archived_original |
-| [1.4.docx](lab1/1.4.docx) | archived_original |
-| [1.5.docx](lab1/1.5.docx) | archived_original |
-| [1.6.docx](lab1/1.6.docx) | archived_original |
-| [zad1.1.txt](lab1/zad1.1.txt) | archived_original |
-| [zad1.2.txt](lab1/zad1.2.txt) | archived_original |
-| [zad1.3.txt](lab1/zad1.3.txt) | archived_original |
-| [zad1.4.txt](lab1/zad1.4.txt) | archived_original |
-| [zad1.5.txt](lab1/zad1.5.txt) | archived_original |
-| [zad1.6.txt](lab1/zad1.6.txt) | archived_original |
-| [2.1.docx](lab2/2.1.docx) | archived_original |
-| [2.1.txt](lab2/2.1.txt) | archived_original |
-| [2.2.docx](lab2/2.2.docx) | archived_original |
-| [2.2.txt](lab2/2.2.txt) | archived_original |
-| [2.3.docx](lab2/2.3.docx) | archived_original |
-| [2.3.txt](lab2/2.3.txt) | archived_original |
-| [2.4.docx](lab2/2.4.docx) | archived_original |
-| [2.4.txt](lab2/2.4.txt) | archived_original |
-| [2.5.docx](lab2/2.5.docx) | archived_original |
-| [2.5.txt](lab2/2.5.txt) | archived_original |
-| [2.6.docx](lab2/2.6.docx) | archived_original |
-| [2.6.txt](lab2/2.6.txt) | archived_original |
-| [2.7.docx](lab2/2.7.docx) | archived_original |
-| [2.7.txt](lab2/2.7.txt) | archived_original |
-| [3.1.docx](lab3/3.1.docx) | archived_original |
-| [3.1.txt](lab3/3.1.txt) | archived_original |
-| [3.2.docx](lab3/3.2.docx) | archived_original |
-| [3.2.txt](lab3/3.2.txt) | archived_original |
-| [3.3.docx](lab3/3.3.docx) | archived_original |
-| [3.3.txt](lab3/3.3.txt) | archived_original |
-| [3.4.docx](lab3/3.4.docx) | archived_original |
-| [3.4.txt](lab3/3.4.txt) | archived_original |
-| [3.5.docx](lab3/3.5.docx) | archived_original |
-| [3.5.txt](lab3/3.5.txt) | archived_original |
-| [3.6.docx](lab3/3.6.docx) | archived_original |
-| [3.6.txt](lab3/3.6.txt) | archived_original |
-| [3.7.docx](lab3/3.7.docx) | archived_original |
-| [3.7.txt](lab3/3.7.txt) | archived_original |
-| [4.1.docx](lab4/4.1.docx) | archived_original |
-| [4.1.txt](lab4/4.1.txt) | archived_original |
-| [5.1.docx](lab5/5.1.docx) | archived_original |
-| [5.1.txt](lab5/5.1.txt) | archived_original |
-| [5.2.docx](lab5/5.2.docx) | archived_original |
-| [5.2.txt](lab5/5.2.txt) | archived_original |
-| [6.1.docx](lab6/6.1.docx) | archived_original |
-| [6.1.txt](lab6/6.1.txt) | archived_original |
-| [7.1.docx](lab7/7.1.docx) | archived_original |
-| [7.1.txt](lab7/7.1.txt) | archived_original |
-| [7.2.docx](lab7/7.2.docx) | archived_original |
-| [7.2.txt](lab7/7.2.txt) | archived_original |
-| [7.3.docx](lab7/7.3.docx) | archived_original |
-| [7.3.txt](lab7/7.3.txt) | archived_original |
-| [8.1.docx](lab8/8.1.docx) | archived_original |
-| [8.1.txt](lab8/8.1.txt) | archived_original |
-| [8.2.docx](lab8/8.2.docx) | archived_original |
-| [8.2.txt](lab8/8.2.txt) | archived_original |
-| [8.3.docx](lab8/8.3.docx) | archived_original |
-| [8.3.txt](lab8/8.3.txt) | archived_original |
-| [8.4.docx](lab8/8.4.docx) | archived_original |
-| [8.4.txt](lab8/8.4.txt) | archived_original |
-| [8.5.docx](lab8/8.5.docx) | archived_original |
-| [8.5.txt](lab8/8.5.txt) | archived_original |
-| [9.1.docx](lab9/9.1.docx) | archived_original |
-| [9.1.txt](lab9/9.1.txt) | archived_original |
-| [9.2.docx](lab9/9.2.docx) | archived_original |
-| [9.2.txt](lab9/9.2.txt) | archived_original |
-| [9.3.docx](lab9/9.3.docx) | archived_original |
-| [9.3.txt](lab9/9.3.txt) | archived_original |
-| [9.4.docx](lab9/9.4.docx) | archived_original |
-| [9.4.txt](lab9/9.4.txt) | archived_original |
-| [9.5.docx](lab9/9.5.docx) | archived_original |
-| [9.5.txt](lab9/9.5.txt) | archived_original |
-| [zaliczenie.txt](zaliczenie.txt) | archived_original |
+Available materials:
+
+- [lab1/1.2.docx](lab1/1.2.docx)
+- [lab1/1.3.docx](lab1/1.3.docx)
+- [lab1/1.4.docx](lab1/1.4.docx)
+- [lab1/1.5.docx](lab1/1.5.docx)
+- [lab1/1.6.docx](lab1/1.6.docx)
+- [lab1/zad1.1.txt](lab1/zad1.1.txt)
+- [lab1/zad1.2.txt](lab1/zad1.2.txt)
+- [lab1/zad1.3.txt](lab1/zad1.3.txt)
+- [lab1/zad1.4.txt](lab1/zad1.4.txt)
+- [lab1/zad1.5.txt](lab1/zad1.5.txt)
+- [lab1/zad1.6.txt](lab1/zad1.6.txt)
+- [lab2/2.1.docx](lab2/2.1.docx)
+- [lab2/2.1.txt](lab2/2.1.txt)
+- [lab2/2.2.docx](lab2/2.2.docx)
+- [lab2/2.2.txt](lab2/2.2.txt)
+- [lab2/2.3.docx](lab2/2.3.docx)
+- [lab2/2.3.txt](lab2/2.3.txt)
+- [lab2/2.4.docx](lab2/2.4.docx)
+- [lab2/2.4.txt](lab2/2.4.txt)
+- [lab2/2.5.docx](lab2/2.5.docx)
+- [lab2/2.5.txt](lab2/2.5.txt)
+- [lab2/2.6.docx](lab2/2.6.docx)
+- [lab2/2.6.txt](lab2/2.6.txt)
+- [lab2/2.7.docx](lab2/2.7.docx)
+- [lab2/2.7.txt](lab2/2.7.txt)
+- [lab3/3.1.docx](lab3/3.1.docx)
+- [lab3/3.1.txt](lab3/3.1.txt)
+- [lab3/3.2.docx](lab3/3.2.docx)
+- [lab3/3.2.txt](lab3/3.2.txt)
+- [lab3/3.3.docx](lab3/3.3.docx)
+- [lab3/3.3.txt](lab3/3.3.txt)
+- [lab3/3.4.docx](lab3/3.4.docx)
+- [lab3/3.4.txt](lab3/3.4.txt)
+- [lab3/3.5.docx](lab3/3.5.docx)
+- [lab3/3.5.txt](lab3/3.5.txt)
+- [lab3/3.6.docx](lab3/3.6.docx)
+- [lab3/3.6.txt](lab3/3.6.txt)
+- [lab3/3.7.docx](lab3/3.7.docx)
+- [lab3/3.7.txt](lab3/3.7.txt)
+- [lab4/4.1.docx](lab4/4.1.docx)
+- [lab4/4.1.txt](lab4/4.1.txt)
+- [lab5/5.1.docx](lab5/5.1.docx)
+- [lab5/5.1.txt](lab5/5.1.txt)
+- [lab5/5.2.docx](lab5/5.2.docx)
+- [lab5/5.2.txt](lab5/5.2.txt)
+- [lab6/6.1.docx](lab6/6.1.docx)
+- [lab6/6.1.txt](lab6/6.1.txt)
+- [lab7/7.1.docx](lab7/7.1.docx)
+- [lab7/7.1.txt](lab7/7.1.txt)
+- [lab7/7.2.docx](lab7/7.2.docx)
+- [lab7/7.2.txt](lab7/7.2.txt)
+- [lab7/7.3.docx](lab7/7.3.docx)
+- [lab7/7.3.txt](lab7/7.3.txt)
+- [lab8/8.1.docx](lab8/8.1.docx)
+- [lab8/8.1.txt](lab8/8.1.txt)
+- [lab8/8.2.docx](lab8/8.2.docx)
+- [lab8/8.2.txt](lab8/8.2.txt)
+- [lab8/8.3.docx](lab8/8.3.docx)
+- [lab8/8.3.txt](lab8/8.3.txt)
+- [lab8/8.4.docx](lab8/8.4.docx)
+- [lab8/8.4.txt](lab8/8.4.txt)
+- [lab8/8.5.docx](lab8/8.5.docx)
+- [lab8/8.5.txt](lab8/8.5.txt)
+- [lab9/9.1.docx](lab9/9.1.docx)
+- [lab9/9.1.txt](lab9/9.1.txt)
+- [lab9/9.2.docx](lab9/9.2.docx)
+- [lab9/9.2.txt](lab9/9.2.txt)
+- [lab9/9.3.docx](lab9/9.3.docx)
+- [lab9/9.3.txt](lab9/9.3.txt)
+- [lab9/9.4.docx](lab9/9.4.docx)
+- [lab9/9.4.txt](lab9/9.4.txt)
+- [lab9/9.5.docx](lab9/9.5.docx)
+- [lab9/9.5.txt](lab9/9.5.txt)
+- [zaliczenie.txt](zaliczenie.txt)

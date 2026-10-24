@@ -7,7 +7,7 @@
 
 Academic work from WAT: traffic analysis, Windows security, vulnerability assessment, networks and cryptographic protocols.
 
-[Projects](#featured-projects) · [Skills](#skills-and-evidence) · [Coursework](coursework/archive/README.md) · [Validation](docs/VALIDATION.md)
+[Projects](#featured-projects) · [Skills](#skills-and-evidence) · [Coursework](coursework/archive/README.md)
 
 </div>
 
@@ -23,8 +23,6 @@ Root/intermediate CA, Apache HTTPS and Wireshark HTTP/TLS inspection, plus an Op
 
 **OpenSSL · Wireshark · Apache · Linux · OpenVPN**
 
-Evidence: laboratory reports; no PCAP or deployable PKI included.
-
 </td><td width="50%" valign="top">
 
 ### 02 · Windows vulnerability assessment
@@ -33,8 +31,6 @@ Evidence: laboratory reports; no PCAP or deployable PKI included.
 Nessus findings on a Windows 11 lab host, risk prioritization and a proposed remediation/retest plan.
 
 **Nessus · Windows · SMB · TLS**
-
-Evidence: academic report. Remediation is not independently verified.
 
 </td></tr>
 <tr><td valign="top">
@@ -46,8 +42,6 @@ Defensive review of an academic C++ keylogger: persistence, input collection, ho
 
 **C++ · WinAPI · Static analysis**
 
-Evidence: source review. No sample execution or validated EDR detection.
-
 </td><td valign="top">
 
 ### 04 · Distributed protocol pipeline
@@ -56,8 +50,6 @@ Evidence: source review. No sample execution or validated EDR detection.
 Four processes pass bytes over TCP, XML-RPC and UDP before printing hexadecimal output.
 
 **Perl → Python → PHP → C · Sockets**
-
-Evidence: source code; network execution was blocked in this environment.
 
 </td></tr>
 <tr><td valign="top">
@@ -69,8 +61,6 @@ Diffie–Hellman, Lamport hash chains, Shamir sharing, signature simulations and
 
 **SageMath · Python · SHA3-512**
 
-Teaching implementations with explicit limitations.
-
 </td><td valign="top">
 
 ### 06 · Embedded keypad & LCD
@@ -79,8 +69,6 @@ Teaching implementations with explicit limitations.
 8051 firmware scans a matrix keypad and implements multi-tap text input on an LCD.
 
 **C · 8051 · Proteus · GPIO**
-
-Evidence: firmware and circuit project; no fresh simulator/hardware run.
 
 </td></tr>
 </table>
@@ -96,14 +84,29 @@ Evidence: firmware and circuit project; no fresh simulator/hardware run.
 | Protocol reasoning and finite fields | [Cryptography](projects/cryptography/README.md) |
 | Low-level programming and state handling | [Embedded C](projects/embedded-keypad/README.md) |
 
-## Repository map
+## Repository structure
 
 ```text
-projects/             Six selected technical projects
-coursework/archive/   Remaining work by academic branch and discipline
-docs/                 Validation, provenance and publication review
+projects/
+├── pki-https-vpn/                       PKI, HTTPS, traffic analysis and VPN
+├── windows-vulnerability-assessment/    Nessus findings and remediation plan
+├── windows-keylogger-analysis/          Static analysis and Windows artifacts
+├── distributed-pipeline/               Perl / Python / PHP / C networking
+├── cryptography/                       Cryptographic protocol simulations
+└── embedded-keypad/                    8051 firmware and Proteus circuit
+
+coursework/archive/
+├── 1-Rok/                              First-year coursework by discipline
+├── 2-Rok/                              Second-year coursework by discipline
+└── main/                               Later coursework by discipline
+
+docs/LICENSING.md                        Authorship and reuse information
 ```
 
-This portfolio presents academic work. Descriptions distinguish historical report results, static observations and checks performed during preparation. No employment, production deployment, incident-response experience or certification is implied.
+Each project README describes its purpose, technologies, files, setup and available results. Source code, diagrams and laboratory reports are linked from the project pages.
 
-See [provenance](docs/PROVENANCE.md), [security review](docs/SECURITY-REVIEW.md) and [licensing](docs/LICENSING.md). Original branches and Git history must be retained when applying this reorganization.
+## Coursework
+
+The [coursework archive](coursework/archive/README.md) contains laboratory reports, programming exercises, lecture notes and question banks, grouped by academic year and discipline.
+
+See [authorship and reuse information](docs/LICENSING.md).

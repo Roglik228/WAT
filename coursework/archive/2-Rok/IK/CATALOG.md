@@ -1,5 +1,5 @@
 # 2-Rok / IK
 
-| Original file | Archive treatment |
-|---|---|
-| [IK.zip](IK.zip) | archived_original |
+Available materials:
+
+- [IK.zip](IK.zip)

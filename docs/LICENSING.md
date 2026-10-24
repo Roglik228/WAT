@@ -1,7 +1,7 @@
-# Licensing and authorship
+# Authorship and reuse
 
-No repository-wide license was present in the reviewed snapshots. This reorganization does not assign a license to original code, reports, screenshots or third-party course material.
+This repository contains academic code, reports, notes, exercises and course materials. No repository-wide license is currently assigned.
 
-Notes, assignment statements, example reports and question banks are retained at the owner's request. That is a publication preference, not independent verification of third-party rights. Preserve existing attribution and obtain permission when required before licensing or redistributing another person's material.
+Preserve the attribution included in individual files. Third-party teaching materials and product screenshots may have separate reuse restrictions.
 
-The EST report names two student authors; it must not be presented as solely authored work. It remains archival material rather than a newly claimed assessment. Product names/logos in original screenshots belong to their owners.
+The EST report lists Wiktor Dresler and Andrii Godlevskyi as student authors. Product names and logos belong to their respective owners.

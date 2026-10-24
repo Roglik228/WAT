@@ -27,10 +27,10 @@ sage src/diffie_hellman.sage
 sage src/shamir.sage
 ```
 
-Use an installed SageMath environment for every .sage file. Original .txt snippets use Sage syntax such as ^ and P.<x>; .sage invokes the [Sage preparser](https://doc.sagemath.org/html/en/reference/misc/sage/misc/persist.html). Missing sample/choice imports were added to two copies. The original six files are preserved unchanged in coursework/archive/2-Rok/PK/.
+Use an installed SageMath environment for every .sage file. Original .txt snippets use Sage syntax such as ^ and P.<x>; .sage invokes the [Sage preparser](https://doc.sagemath.org/html/en/reference/misc/sage/misc/persist.html). The six coursework snippets are also available in coursework/archive/2-Rok/PK/.
 
 ## Results and limits
 
-The default Lamport demonstration was executed and its three successful verifications checked; see [result](results/lamport-check.md). SageMath is unavailable here, so other simulations were not run. Source-visible positive/negative scenarios are not advertised as passing tests.
+The default Lamport demonstration was executed and its three successful verifications checked; see [result](results/lamport-check.md). Execution results for the SageMath examples are not included. Source-visible positive/negative scenarios are not advertised as passing tests.
 
 The signature simulation returns success only inside an if ok and verbose branch, so verbose=False can report failure even when comparisons succeed. This limitation was documented rather than hidden. No implementation provides production key generation, constant-time execution, authenticated transport or an independently reviewed construction. Do not use it to protect real data.
